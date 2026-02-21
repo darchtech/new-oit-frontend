@@ -1,0 +1,269 @@
+/* ================= FOOTER BASE ================= */
+.footer {
+  background: linear-gradient(135deg, #000000, #111111, #ff6a00);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* ================= CONTAINER ================= */
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 45px 15px 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+/* ================= LOGO ================= */
+.footer-logo {
+  width: 120px;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e6e6e6;
+}
+
+/* ================= TITLES ================= */
+.footer-col h4 {
+  font-size: 17px;
+  margin-bottom: 12px;
+  color: #ffffff;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: "";
+  width: 38px;
+  height: 2px;
+  background: #ff6a00;
+  display: block;
+  margin-top: 6px;
+}
+
+/* ================= LINKS ================= */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #d9d9d9;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+  padding-left: 6px;
+}
+
+/* ================= BOTTOM ================= */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 13px;
+  color: #cccccc;
+}
+
+/* ================= FLOATING BUTTONS ================= */
+.floating-buttons {
+  position: fixed;
+  right: 18px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+/* ================= FLOAT BUTTON BASE ================= */
+.float-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.float-btn img {
+  width: 28px;
+  height: 28px;
+}
+
+/* HOVER EFFECT (NO BLINKING) */
+.float-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* COLORS */
+.whatsapp {
+  background: #25d366;
+}
+
+.call {
+  background: #000000;
+}
+
+/* ================= FOOTER ANIMATION ================= */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer-col h4::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .float-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .float-btn img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .footer-container {
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr); /* ✅ MOBILE = 2 COLUMNS */
+    gap: 20px;
+  }
+
+  .footer-col h4::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .float-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .float-btn img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+/* ================= SERVICES SOCIAL ROW ================= */
+.footer-social-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* जर SocialBtn मध्ये a tags असतील */
+.footer-social-row a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.footer-social-row a:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= SOCIAL ICONS BELOW LOGO TEXT ================= */
+.footer-social-icons {
+  margin-top: 18px;              /* 🔥 text खालची space */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ICON BASE */
+.footer-social-icons .social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* HOVER */
+.footer-social-icons .social-icon:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* COLORS */
+.social-icon.fb { background: #3b5998; }
+.social-icon.ig { background: #e4405f; }
+.social-icon.ln { background: #0077b5; }
+.social-icon.yt { background: #ff0000; }
+.social-icon.wa { background: #25d366; }
+
+/* MOBILE CENTER */
+@media (max-width: 600px) {
+  .footer-social-icons {
+    justify-content: center;
+  }
+}
+
+

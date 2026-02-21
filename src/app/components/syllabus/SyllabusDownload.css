@@ -1,0 +1,53 @@
+.syllabus-container {
+  padding: 60px;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+.syllabus-container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.syllabus-container p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Table */
+.syllabus-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.syllabus-table th,
+.syllabus-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.syllabus-table th {
+  background: #ff7f00;
+  color: #fff;
+}
+
+.syllabus-table tr:nth-child(even) {
+  background: #f4f4f4;
+}
+
+/* Download Button */
+.download-btn {
+  padding: 8px 15px;
+  background: linear-gradient(90deg, #ff7f00, #ffb347);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}

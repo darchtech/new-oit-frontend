@@ -1,0 +1,651 @@
+/* ================== GLOBAL RESET / BASE ================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================== ANIMATION FOR CARDS ON SCROLL ================== */
+.course-card-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.show-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ================== BANNER STYLING ================== */
+.sx-bnr-2-wrap-outer.home-2-slider {
+  /* height: 780px !important; */
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.main-content-container {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.orange-btn {
+  background-color: #ff6600 !important;
+  color: white !important;
+  font-weight: bold;
+  padding: 12px 40px !important;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: -50px;
+}
+
+/* ================== BATCHES TABLE SECTION ================== */
+.batches-section {
+  padding: 60px 20px;
+  background-color: #f7f7f7;
+}
+
+.batches-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Make table scrollable on small screens */
+.batches-section table {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.batches-section thead {
+  background: #ffb400;
+  color: #000;
+}
+
+.batches-section th,
+.batches-section td {
+  padding: 14px;
+  text-align: left;
+  font-size: 16px;
+  vertical-align: top;
+}
+
+.batches-section th {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.batches-section tbody tr {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.batches-section tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.batches-section tbody tr:hover {
+  background: #f0f0f0 !important;
+}
+
+.batches-section .orange-btn {
+  padding: 4px 12px !important;
+  font-size: 12px !important;
+  border-radius: 16px;
+  background-color: #ffb400 !important;
+  color: #000 !important;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+/* ================== COURSE SECTION ================== */
+.course-section {
+  padding: 40px 10px;
+  background: #ffffff;
+}
+
+.course-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.course-section h4,
+.course-section h2 {
+  text-align: center;
+  margin: 0 auto 20px auto;
+  max-width: 800px;
+  padding: 0 15px;
+}
+
+.course-section h4 {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.course-section h2 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+/* ================== MODE TOGGLE ================== */
+.mode-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 35px;
+}
+
+.toggle-box {
+  background: #f1f1f1;
+  padding: 5px;
+  border-radius: 50px;
+  display: flex;
+}
+
+.toggle-btn {
+  padding: 8px 25px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+  background: #ff6600;
+  color: white;
+}
+
+/* ================== COURSES GRID ================== */
+.courses-grid {
+  display: grid;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Default: Desktop */
+@media (min-width: 992px) {
+  .courses-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-title,
+  .course-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .course-section h4 {
+    font-size: 1rem;
+  }
+
+  .main-content-container h1 {
+    font-size: 2.5rem !important;
+    top: -70px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .main-content-container h2 {
+    font-size: 1.3rem !important;
+    top: -120px !important;
+  }
+
+  .orange-btn {
+    padding: 10px 30px !important;
+    font-size: 14px !important;
+    margin-top: -30px !important;
+  }
+}
+
+/* ================== COURSE CARD ================== */
+.course-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: #ff6600;
+}
+
+.icon-box {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.course-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a3c;
+  margin: 10px 0;
+}
+
+.course-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* ================== CARD BUTTONS ================== */
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-enroll,
+.btn-explore {
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 140px;
+  text-align: center;
+}
+
+.btn-enroll {
+  background: #ff6600;
+  color: white;
+}
+
+.btn-enroll:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+}
+
+.btn-explore {
+  background: #1a1a3c;
+  color: white;
+}
+
+.btn-explore:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+/* ================== TABLE RESPONSIVE FIX ================== */
+@media (max-width: 768px) {
+  .batches-section table {
+    font-size: 14px;
+  }
+
+  .batches-section th,
+  .batches-section td {
+    padding: 10px 8px;
+  }
+
+  .batches-section .orange-btn {
+    padding: 3px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .batches-section table {
+    font-size: 8px;
+  }
+
+  .batches-section th,
+  .batches-section td {
+    padding: 8px 6px;
+  }
+
+  .batches-section h2 {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+
+
+
+
+
+.hero-form-wrapper {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background: #000;
+}
+
+.hero-left {
+  flex: 1;
+  color: #fff;
+}
+
+.hero-right {
+  flex: 1;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.brand-title {
+  color: #ffb400;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.orange-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff9800;
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.send-btn {
+  background: #ff9800;
+  color: #000;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-form-wrapper {
+    flex-direction: column;
+  }
+}
+
+
+
+/* ===== HERO WRAPPER ===== */
+.hero-form-wrapper {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* ===== LEFT CONTENT ===== */
+.hero-left {
+  flex: 1;
+  color: #fff;
+}
+
+.hero-left h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.hero-left h1 {
+  font-size: 42px;
+  color: #ffb400;
+  margin-bottom: 12px;
+}
+
+.hero-left h2 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+/* ===== RIGHT FORM ===== */
+.hero-right {
+  width: 360px;            /* 👈 width कमी */
+  background: #ffffff;
+  padding: 18px;           /* 👈 padding कमी */
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.hero-right h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* form spacing */
+.hero-right .form-control,
+.hero-right .form-select {
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.hero-right textarea {
+  resize: none;
+}
+
+/* submit button */
+.send-btn {
+  background: #ffb400;
+  color: #000;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 30px;
+}
+
+/* ===== HERO OVERLAY ===== */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .hero-form-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    width: 100%;
+    max-width: 380px;
+  }
+  .hero-overlay {
+  height: 70vh;
+}
+}
+
+
+
+@media (max-width: 768px) {
+  .hero-form-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left h2 {
+    font-size: 16px;
+  }
+
+  .hero-left h3 {
+    font-size: 14px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .hero-form-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left h2 {
+    font-size: 16px;
+  }
+
+  .hero-left h3 {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+/* ================================================ */
+
+.hero-right {
+  width: 360px;
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 180, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-right:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 180, 0, 0.4);
+}
+
+
+
+
+
+
+/* ======================================= */
+
+
+
+/* ===== HERO LEFT EXTRA CONTENT ===== */
+.hero-left-extra {
+  margin: 18px 0;
+  max-width: 520px;
+}
+
+.hero-left-extra p {
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.hero-left-extra ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero-left-extra ul li {
+  font-size: 15px;
+  color: #ffb400;
+  margin-bottom: 6px;
+}
+
+
+.hero-right {
+  width: 360px;
+  min-height: 400px;   /* 👈 इथे height वाढेल */
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 180, 0, 0.25);
+}
+.hero-overlay {
+  height: 75vh;                /* 👈 100% ऐवजी कमी */
+  background: rgba(0, 0, 0, 0.75); /* थोडं light */
+}
+
+
+
+
+
+
+
+/* ====================================================== */
+
+
+
+
+/* ============================================================ */

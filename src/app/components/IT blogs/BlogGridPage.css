@@ -1,0 +1,296 @@
+/* ================= PAGE ================= */
+.blog-page {
+  padding: 30px;
+  background: #f7f8fa;
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ================= GRID ================= */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+/* ================= CARD ================= */
+.blog-card {
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= IMAGE ================= */
+.blog-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.08);
+}
+
+.clickable-img {
+  cursor: pointer;
+}
+
+/* ================= CONTENT ================= */
+.blog-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.blog-content h4 {
+  margin-bottom: 6px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #222;
+}
+
+.blog-content small {
+  color: #777;
+  font-size: 12px;
+}
+
+.blog-content p {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* ================= BUTTON ================= */
+.blog-content button {
+  margin-top: 12px;
+  padding: 8px 18px;
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 22px;
+  font-size: 13px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-content button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 22px rgba(255, 122, 24, 0.45);
+}
+
+/* ================= FADE-UP ================= */
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MODAL ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-box {
+  position: relative;
+  background: #fff;
+  max-width: 720px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 25px;
+  border-radius: 16px;
+  animation: scaleIn 0.35s ease;
+}
+
+.modal-image {
+  width: 100%;
+  margin: 15px 0;
+  border-radius: 12px;
+}
+
+/* ================= IMAGE MODAL ================= */
+.image-modal {
+  position: relative;
+  max-width: 92%;
+  max-height: 92vh;
+}
+
+.image-modal img {
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* ================= CLOSE BUTTON ================= */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #ff3b3b;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ================= LOADER ================= */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  gap: 12px;
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #ff7a18;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Modal wrapper */
+.blog-modal,
+.image-modal {
+  position: fixed;
+  inset: 0;
+  top: 80px;                  /* 🔥 navbar खाली */
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  z-index: 998;               /* navbar पेक्षा कमी */
+  background: rgba(0,0,0,0.55);
+}
+@media (max-width: 768px) {
+  .blog-modal,
+  .image-modal {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+}
+.blog-modal-content {
+  max-height: 100%;
+  overflow-y: auto;
+}
+/* Modal wrapper */
+.blog-modal,
+.image-modal {
+  position: fixed;
+  inset: 0;
+  top: 80px;                  /* 🔥 navbar खाली */
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  z-index: 998;               /* navbar पेक्षा कमी */
+  background: rgba(0,0,0,0.55);
+}
+@media (max-width: 768px) {
+  .blog-modal,
+  .image-modal {
+    top: 64px;
+    height: calc(100vh - 64px);
+  }
+}
+.blog-modal-content {
+  max-height: 100%;
+  overflow-y: auto;
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  z-index: 9999; /* 🔥 navbar peksha jasta */
+}
+
+.modal-box {
+  margin-top: 120px; /* 🔥 navbar + gap */
+
+  background: #fff;
+  max-width: 720px;
+  width: 92%;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+
+  padding: 25px;
+  border-radius: 16px;
+}
+@media (max-width: 768px) {
+  .modal-box {
+    margin-top: 90px;
+    max-height: calc(100vh - 110px);
+  }
+}

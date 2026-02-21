@@ -1,0 +1,126 @@
+/* ===============================
+   HEADING
+================================ */
+.sx-placement-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sx-placement-heading .sx-title {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.sx-placement-heading .sx-title span {
+  color: #ff6600;
+}
+
+.sx-placement-heading p {
+  max-width: 850px;
+  margin: 8px auto 0;
+  color: #666;
+}
+
+/* ===============================
+   LOGO CONTAINER
+================================ */
+.sx-center-scroller-box {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   DESKTOP – SINGLE ROW 🔥
+================================ */
+.sx-logo-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+/* LOGO ITEM */
+.sx-logo-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LOGO IMAGE */
+.sx-logo-item img {
+  max-width: 190px;
+  max-height: 85px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===============================
+   📱 MOBILE RESPONSIVE FIX 🔥
+================================ */
+@media (max-width: 768px) {
+  .sx-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🔥 2 logos per row */
+    gap: 16px;
+  }
+
+  .sx-logo-item img {
+    max-width: 140px;
+    max-height: 65px;
+  }
+}
+
+/* ===============================
+   VERY SMALL PHONES
+================================ */
+@media (max-width: 400px) {
+  .sx-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .sx-logo-item img {
+    max-width: 120px;
+    max-height: 55px;
+  }
+}
+
+/* ===============================
+   SOCIAL ICONS
+================================ */
+.sx-social-box-container {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.sx-social-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.sx-s-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.sx-s-icon:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.yt { background: #ff0000; }
+.ln { background: #0077b5; }
+.ig {
+  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}

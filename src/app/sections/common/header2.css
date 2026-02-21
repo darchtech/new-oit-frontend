@@ -1,0 +1,529 @@
+/* =====================================================
+   GLOBAL RESET & SCROLL FIX
+===================================================== */
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* =====================================================
+   BASIC LAYOUT (DESKTOP SAFE)
+===================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-nav a {
+  padding: 10px 18px;
+  font-size: 15px;
+}
+
+.main-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo-header {
+  flex: 0 0 auto;
+}
+
+.logo-header img {
+  height: 48px;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.header-nav ul,
+.header-nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #1b1b1b;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #ff6a00;
+}
+
+/* =====================================================
+   HEADER WRAPPER
+===================================================== */
+.sticky-header {
+  background: #fff;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+.header-nav .navbar-collapse {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-nav .navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  left: 210px;
+}
+
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 5px 0;
+  background: #333;
+}
+
+/* =====================================================
+   CTA BUTTON
+===================================================== */
+.navbar-nav .enquiry-btn,
+.navbar-nav .enquire-btn {
+  background: linear-gradient(135deg, #ff6a00, #ff8c1a);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+.navbar-nav .enquiry-btn:hover,
+.navbar-nav .enquire-btn:hover {
+  box-shadow: 0 6px 18px rgba(255, 106, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   COURSES MEGA MENU — DESKTOP (UNCHANGED)
+===================================================== */
+.header-nav .nav > li:nth-child(2) {
+  position: relative;
+}
+
+.header-nav .nav > li:nth-child(2) > .sub-menu {
+  display: flex;
+  gap: 75px;
+  background: #fff;
+  padding: 20px 55px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 320%;
+  transform: translateX(-50%);
+  z-index: 99;
+  min-width: 800px;
+  max-width: 95vw;
+  white-space: nowrap;
+}
+
+.header-nav .nav > li:nth-child(2) .sub-menu > li {
+  flex: 1;
+  min-width: 140px;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-nav .nav > li:nth-child(2) .sub-menu .category-header {
+  color: #ff6a00 !important;
+  font-weight: 600;
+  font-size: 14px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #ff6a00;
+}
+
+.header-nav .nav > li:nth-child(2) .sub-menu a:not(.category-header) {
+  color: #333 !important;
+  font-size: 15px;
+  padding: 4px 0;
+}
+
+.header-nav .nav > li:nth-child(2) .sub-menu a:hover {
+  color: #ff6a00 !important;
+}
+
+/* =====================================================
+   MOBILE FIXES + ANIMATION (ONLY MOBILE)
+===================================================== */
+@media (max-width: 992px) {
+  /* Navbar stacking */
+  .main-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* ================= NAVBAR OPEN / CLOSE ANIMATION ================= */
+  .header-nav .navbar-collapse {
+    display: block !important;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .header-nav.active .navbar-collapse {
+    max-height: 1200px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .header-nav .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100%;
+    gap: 0;
+  }
+
+  /* CTA spacing */
+  .navbar-nav .enquire-btn {
+    margin: 15px 0 0;
+  }
+
+  /* ================= COURSES DROPDOWN ACCORDION ================= */
+  .header-nav .nav > li:nth-child(2) > .sub-menu {
+    position: static !important;
+    display: block !important;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    flex-direction: column !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    gap: 20px;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+
+  .header-nav .nav > li:nth-child(2).open > .sub-menu,
+  .header-nav .nav > li:nth-child(2) .sub-menu[style*="display"] {
+    max-height: 1600px;
+    opacity: 1;
+    padding: 10px 0 !important;
+  }
+
+  .header-nav .nav > li:nth-child(2) .sub-menu > li {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  .header-nav .nav > li:nth-child(2) .sub-menu a {
+    text-align: left !important;
+    white-space: normal !important;
+  }
+}
+/* =====================================================
+   COURSES DROPDOWN — BASE
+===================================================== */
+.header-nav .nav-item {
+  position: relative;
+}
+
+/* Hide by default */
+.header-nav .sub-menu {
+  display: none;
+}
+
+/* =====================================================
+   DESKTOP COURSES MEGA MENU
+===================================================== */
+@media (min-width: 993px) {
+  .header-nav .nav-item.open > .sub-menu {
+    display: flex;
+  }
+
+  .header-nav .sub-menu.courses-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 25px 50px;
+    display: flex;
+    gap: 70px;
+    border-radius: 6px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    min-width: 900px;
+    max-width: 95vw;
+    z-index: 999;
+  }
+
+  .header-nav .sub-menu.courses-dropdown > li {
+    min-width: 160px;
+  }
+
+  .dropdown-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown-column .category-header {
+    color: #ff6a00;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ff6a00;
+  }
+
+  .dropdown-column a {
+    font-size: 14.5px;
+    padding: 5px 0;
+    color: #333;
+    white-space: normal;
+  }
+
+  .dropdown-column a:hover {
+    color: #ff6a00;
+  }
+}
+
+/* =====================================================
+   MOBILE COURSES DROPDOWN — ACCORDION
+===================================================== */
+@media (max-width: 992px) {
+  .header-nav .nav-item.open > .sub-menu {
+    display: block;
+  }
+
+  .header-nav .sub-menu.courses-dropdown {
+    position: static;
+    background: #f9f9f9;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 6px;
+  }
+
+  .header-nav .sub-menu.courses-dropdown > li {
+    margin-bottom: 15px;
+  }
+
+  .dropdown-column .category-header {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ff6a00;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .dropdown-column a {
+    font-size: 14px;
+    padding: 6px 0;
+    display: block;
+    color: #333;
+  }
+}
+
+
+
+.header-nav::before {
+  z-index: 999;              /* overlay below menu */
+}
+
+.header-nav .navbar-collapse {
+  z-index: 1100;             /* menu above overlay */
+}
+@media (max-width: 992px) {
+
+  .header-nav::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  .header-nav.active::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .header-nav .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    background: #ffffff;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1100; /* 👈 ABOVE overlay */
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+  }
+
+  .header-nav.active .navbar-collapse {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+/* ===============================
+   BODY SCROLL LOCK (MOBILE NAV)
+================================ */
+body.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+  touch-action: none;
+}
+
+
+
+
+
+
+/* ===============================
+   MOBILE HEADER FIX — LOGO VISIBLE
+================================ */
+@media (max-width: 992px) {
+
+  /* Header layout */
+  .main-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* LOGO FIX */
+  .logo-header {
+    position: relative;
+    z-index: 1200; /* sidebar (1100) पेक्षा जास्त */
+  }
+
+  .logo-header img {
+    height: 42px;
+    max-height: 45px;
+    display: block;
+  }
+
+  /* TOGGLER FIX (remove left:210px issue) */
+  .navbar-toggler {
+    position: relative;
+    margin-left: auto;
+    z-index: 1200;
+  }
+
+  /* SIDEBAR MENU */
+  .header-nav .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    background: #ffffff;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1100;
+    padding: 80px 20px 20px;
+    overflow-y: auto;
+  }
+
+  .header-nav.active .navbar-collapse {
+    transform: translateX(0);
+  }
+
+  /* OVERLAY */
+  .header-nav::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  .header-nav.active::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+
+/* ===============================
+   NAV MENU UNDERLINE EFFECT
+================================ */
+.header-nav .navbar-nav > li > a {
+  position: relative;
+  padding-bottom: 6px;
+}
+
+/* underline (hidden by default) */
+.header-nav .navbar-nav > li > a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #ff6a00;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* hover effect */
+.header-nav .navbar-nav > li > a:hover::after {
+  width: 100%;
+}
+
+/* active menu item */
+.header-nav .navbar-nav > li.active > a::after,
+.header-nav .navbar-nav > li > a.active::after {
+  width: 100%;
+}
+
+
+
+
