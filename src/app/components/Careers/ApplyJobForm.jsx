@@ -18,7 +18,7 @@ const ApplyJobForm = ({ isOpen, onClose, jobTitle }) => {
 
   const [loading, setLoading] = useState(false);
 
-  // 🔄 Handle input change
+  //  🔄 Handle input change
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
