@@ -17,7 +17,7 @@
 //   return (
 //     <>
 //       <div className="page-wraper">
-        
+
 //      {useHeader2 ? <Header2 /> : <Header1 />}
 
 //         <div className="page-content">
@@ -35,8 +35,6 @@
 // }
 
 // export default RootLayout;
-
-
 
 import Footer from "../app/sections/common/footer";
 import Header2 from "../app/sections/common/header2";
