@@ -7,9 +7,31 @@ import "../../sections/common/header2.css";
 function Header2() {
   const [isActive, setIsActive] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   const toggleNavClass = () => setIsActive(!isActive);
+
+  // Scroll detection for fixed navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Initial check
+    handleScroll();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     loadScript("js/mobilenav.js");
@@ -20,50 +42,36 @@ function Header2() {
     setIsActive(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (isActive) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
 
-useEffect(() => {
-  if (isActive) {
-    document.body.classList.add("no-scroll");
-  } else {
-    document.body.classList.remove("no-scroll");
-  }
-
-  // cleanup (important)
-  return () => {
-    document.body.classList.remove("no-scroll");
-  };
-}, [isActive]);
-
-
-
-
-
-
-
-
-
-
-
+    // cleanup (important)
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isActive]);
 
   return (
     /* ✅ FIX 1: removed navbar-collapse from header */
     // <header className={`header-nav ${isActive ? "active" : ""}`}>
     <header
-  className={`header-nav ${isActive ? "active" : ""}`}
-  onClick={(e) => {
-    if (
-      window.innerWidth <= 992 &&
-      e.target === e.currentTarget   // 👈 IMPORTANT
-    ) {
-      setIsActive(false);
-    }
-  }}
->
-
-
+      className={`header-nav ${isActive ? "active" : ""} ${isScrolled ? "scrolled" : ""}`}
+      onClick={(e) => {
+        if (
+          window.innerWidth <= 992 &&
+          e.target === e.currentTarget // 👈 IMPORTANT
+        ) {
+          setIsActive(false);
+        }
+      }}
+    >
       <div className="sticky-header main-bar-wraper navbar-expand-lg">
         <div className="main-bar">
-          <div className="container clearfix" style={{display:"flex"}}>
+          <div className="container clearfix" style={{ display: "flex" }}>
             {/* LOGO */}
             <div className="logo-header d-flex justify-content-between align-items-center">
               <NavLink to="/index2">
@@ -72,13 +80,12 @@ useEffect(() => {
               {/* MOBILE TOGGLE */}
               {/* <button className="navbar-toggler" onClick={toggleNavClass}> */}
               <button
-  className="navbar-toggler"
-  onClick={(e) => {
-    e.stopPropagation(); // 👈 MUST
-    toggleNavClass();
-  }}
->
-
+                className="navbar-toggler"
+                onClick={(e) => {
+                  e.stopPropagation(); // 👈 MUST
+                  toggleNavClass();
+                }}
+              >
                 <span className="icon-bar" />
                 <span className="icon-bar" />
                 <span className="icon-bar" />
@@ -88,10 +95,9 @@ useEffect(() => {
             {/* ✅ FIX 2: cleaned navbar-collapse */}
             {/* <div className="navbar-collapse"> */}
             <div
-  className="navbar-collapse"
-  onClick={(e) => e.stopPropagation()}   // 🔒 stop bubbling
->
-
+              className="navbar-collapse"
+              onClick={(e) => e.stopPropagation()} // 🔒 stop bubbling
+            >
               <ul className="nav navbar-nav">
                 <li>
                   <NavLink to="/">Home</NavLink>
@@ -110,9 +116,7 @@ useEffect(() => {
                   </NavLink>
 
                   {isCoursesOpen && (
-
-
-                        <ul className="sub-menu courses-dropdown" >
+                    <ul className="sub-menu courses-dropdown">
                       {/* Column 1 */}
                       <li>
                         <div className="dropdown-column">
@@ -246,6 +250,9 @@ useEffect(() => {
                 </li>
                 <li>
                   <NavLink to="/placement">Placement</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/events">Events</NavLink>
                 </li>
 
                 <li className="nav-cta">

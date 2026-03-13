@@ -314,22 +314,27 @@ export default function DigitalMarketingPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                              to="/contact-form"
-                              className="btn-primary"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Download Syllabus
-                            </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Digital Marketing";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -384,14 +389,12 @@ export default function DigitalMarketingPage() {
       <section className="about-content-section">
         <Container>
           <Row className="align-items-center">
-            {/* LEFT CONTENT */} 
+            {/* LEFT CONTENT */}
             <h2 className="angular-title">
-                Performance-Focused Digital Marketing Services That Deliver
-                Results
-              </h2>
+              Performance-Focused Digital Marketing Services That Deliver
+              Results
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-             
-
               <p>
                 The Digital Marketing Course at Orange ITech is a comprehensive,
                 hands-on training program designed to equip you with real-world
@@ -610,7 +613,7 @@ export default function DigitalMarketingPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -800,55 +803,55 @@ export default function DigitalMarketingPage() {
             After completing this course, you can apply for roles such as:
           </p>
 
-    <Row className="gy-4 mt-4">
-  {/* Digital Marketing Executive */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaBullhorn className="career-icon" />
-      <span>Digital Marketing Executive</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Digital Marketing Executive */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaBullhorn className="career-icon" />
+                <span>Digital Marketing Executive</span>
+              </div>
+            </Col>
 
-  {/* SEO Specialist */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaSearch className="career-icon" />
-      <span>SEO Specialist</span>
-    </div>
-  </Col>
+            {/* SEO Specialist */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaSearch className="career-icon" />
+                <span>SEO Specialist</span>
+              </div>
+            </Col>
 
-  {/* PPC & Google Ads Expert */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaGoogle className="career-icon" />
-      <span>PPC & Google Ads Expert</span>
-    </div>
-  </Col>
+            {/* PPC & Google Ads Expert */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaGoogle className="career-icon" />
+                <span>PPC & Google Ads Expert</span>
+              </div>
+            </Col>
 
-  {/* Social Media Manager */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaShareAlt className="career-icon" />
-      <span>Social Media Manager</span>
-    </div>
-  </Col>
+            {/* Social Media Manager */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaShareAlt className="career-icon" />
+                <span>Social Media Manager</span>
+              </div>
+            </Col>
 
-  {/* Content Marketing Specialist */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaPenNib className="career-icon" />
-      <span>Content Marketing Specialist</span>
-    </div>
-  </Col>
+            {/* Content Marketing Specialist */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPenNib className="career-icon" />
+                <span>Content Marketing Specialist</span>
+              </div>
+            </Col>
 
-  {/* Content Marketing */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaFileAlt className="career-icon" />
-      <span>Content Marketing</span>
-    </div>
-  </Col>
-</Row>
+            {/* Content Marketing */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaFileAlt className="career-icon" />
+                <span>Content Marketing</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -895,13 +898,13 @@ export default function DigitalMarketingPage() {
           </Row>
         </Container>
       </section>
-      
-      <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

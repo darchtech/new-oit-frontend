@@ -1,6 +1,6 @@
 import React from "react";
 import "./contact.css";
-import PhotoGallery from "./PhotoGallery";
+// import PhotoGallery from "./PhotoGallery";
 
 function SectionCaseStudy2() {
     return (
@@ -58,7 +58,7 @@ function SectionCaseStudy2() {
                 </div>
                         
             </div>
-            <PhotoGallery/>
+            {/* <PhotoGallery/> */}
         </div>
     );
 }

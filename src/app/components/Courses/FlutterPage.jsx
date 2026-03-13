@@ -1,4 +1,3 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { Container, Button } from "react-bootstrap";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -9,7 +8,10 @@ import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 import { SiFlutter } from "react-icons/si";
 import {
-  FaMobileAlt, FaLaptopCode, FaPaintBrush, FaCode, 
+  FaMobileAlt,
+  FaLaptopCode,
+  FaPaintBrush,
+  FaCode,
   FaUserGraduate,
   FaBriefcase,
   FaHeart,
@@ -505,22 +507,27 @@ export default function FlutterPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                              to="/contact-form"
-                              className="btn-primary"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Download Syllabus
-                            </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Flutter Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -576,11 +583,10 @@ export default function FlutterPage() {
         <Container>
           <Row className="align-items-center">
             <h2 className="angular-title">
-                Become a Cross-Platform App Developer with Flutter
-              </h2>
+              Become a Cross-Platform App Developer with Flutter
+            </h2>
             {/* LEFT CONTENT */}
             <Col lg={6} md={6} className="about-content-col">
-              
               <p>
                 Launch your career in cross-platform mobile app development with
                 the Flutter Development Course at Orange ITech. This course is
@@ -1000,56 +1006,55 @@ export default function FlutterPage() {
           </p>
 
           {/* ROLE CARDS */}
-           <Row className="gy-4 mt-4">
-      {/* Flutter Developer */}
-      <Col md={4}>
-        <div className="career-card">
-          <SiFlutter className="career-icon" />
-          <span>Flutter Developer</span>
-        </div>
-      </Col>
+          <Row className="gy-4 mt-4">
+            {/* Flutter Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <SiFlutter className="career-icon" />
+                <span>Flutter Developer</span>
+              </div>
+            </Col>
 
-      {/* Mobile Application Developer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaMobileAlt className="career-icon" />
-          <span>Mobile Application Developer</span>
-        </div>
-      </Col>
+            {/* Mobile Application Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaMobileAlt className="career-icon" />
+                <span>Mobile Application Developer</span>
+              </div>
+            </Col>
 
-      {/* Cross-Platform App Developer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaLaptopCode className="career-icon" />
-          <span>Cross-Platform App Developer</span>
-        </div>
-      </Col>
+            {/* Cross-Platform App Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptopCode className="career-icon" />
+                <span>Cross-Platform App Developer</span>
+              </div>
+            </Col>
 
-      {/* Software Engineer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaCode className="career-icon" />
-          <span>Software Engineer</span>
-        </div>
-      </Col>
+            {/* Software Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCode className="career-icon" />
+                <span>Software Engineer</span>
+              </div>
+            </Col>
 
-      {/* UI/UX Flutter Engineer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaPaintBrush className="career-icon" />
-          <span>UI/UX Flutter Engineer</span>
-        </div>
-      </Col>
+            {/* UI/UX Flutter Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPaintBrush className="career-icon" />
+                <span>UI/UX Flutter Engineer</span>
+              </div>
+            </Col>
 
-      {/* Mobile App Consultant */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaGlobe className="career-icon" />
-          <span>Mobile App Consultant</span>
-        </div>
-      </Col>
-    </Row>
-
+            {/* Mobile App Consultant */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaGlobe className="career-icon" />
+                <span>Mobile App Consultant</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -1100,14 +1105,13 @@ export default function FlutterPage() {
           </Row>
         </Container>
       </section>
-     
 
-     <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

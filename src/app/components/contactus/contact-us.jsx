@@ -903,7 +903,7 @@ function ContactUsPage() {
   return (
     <>
       {/* hero section */}
-      <section className="contact-head-section shadow">
+      {/* <section className="contact-head-section shadow">
         <div className="container h-100">
           <div className="row h-100 align-items-center">
             <div className="col-lg-8 col-md-10 hero-content">
@@ -924,7 +924,10 @@ function ContactUsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+      
 
       {/* Contact Form */}
       <div className="container-fluid mt-3 contact-bg">
@@ -1013,19 +1016,28 @@ function ContactUsPage() {
                       required
                     >
                       <option value="">Select Course</option>
-                      <option>Full Stack Development</option>
+                      <option>C Programming</option>
+                      <option>Core Java</option>
+                      <option>Advance Java </option>
+                      <option>DSA</option>
+                      <option>RDBMS</option>
+                      <option>Java Full Stack Development</option>
                       <option>Mern Stack</option>
                       <option>Java FullStack</option>
                       <option>PHP FullStack</option>
                       <option>Python FullStack</option>
                       <option>.Net FullStack</option>
                       <option>Mean Stack</option>
-                      <option>Data Science</option>
+                      <option>Data Science & AI</option>
+                      <option>DevOps</option>
                       <option>Cyber Security</option>
                       <option>Digital Marketing</option>
                       <option>UI UX Developer</option>
-                      <option>Flutter</option>
+                      <option>Flutter Development</option>
+                      <option>Android Development</option>
                       <option>Sales Force Development</option>
+                      <option>Angular Development</option>
+                      <option>React Development</option>
                     </select>
                   </div>
 

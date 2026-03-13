@@ -564,21 +564,30 @@ export default function MERNStackPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "MERN Stack Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-                   
-                           <NavLink
-                             to="/contact-us"
-                             className="btn-outline"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Enroll Now
-                           </NavLink>
             </div>
           </div>
 
@@ -634,11 +643,10 @@ export default function MERNStackPage() {
         <Container>
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
-             <h2 className="angular-title">
-                Become a Job-Ready MERN Stack Developer
-              </h2>
+            <h2 className="angular-title">
+              Become a Job-Ready MERN Stack Developer
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-             
               <p>
                 The MERN Stack Development Course at Orange ITech is designed
                 for learners who want to master modern full stack web
@@ -762,7 +770,8 @@ export default function MERNStackPage() {
       <section className="syllabus-wrapper">
         <div className="syllabus-container">
           <h4 className="mean-title">
-            What You Will Learn in MERN Stack <br />Development Course
+            What You Will Learn in MERN Stack <br />
+            Development Course
           </h4>
 
           <p className="faq-subtitle">
@@ -1025,50 +1034,49 @@ export default function MERNStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-         <Row className="gy-4 mt-4">
-  <Col md={4}>
-    <div className="career-card">
-      <FaLayerGroup className="career-icon" />
-      <span>MERN Stack Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            <Col md={4}>
+              <div className="career-card">
+                <FaLayerGroup className="career-icon" />
+                <span>MERN Stack Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaLaptopCode className="career-icon" />
-      <span>Full Stack JavaScript Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptopCode className="career-icon" />
+                <span>Full Stack JavaScript Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaCode className="career-icon" />
-      <span>Frontend Developer (React)</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaCode className="career-icon" />
+                <span>Frontend Developer (React)</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaServer className="career-icon" />
-      <span>Backend Developer (Node.js)</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaServer className="career-icon" />
+                <span>Backend Developer (Node.js)</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaCogs className="career-icon" />
-      <span>Web Application Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaCogs className="career-icon" />
+                <span>Web Application Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaGlobe className="career-icon" />
-      <span>Web Developer</span>
-    </div>
-  </Col>
-</Row>
-
+            <Col md={4}>
+              <div className="career-card">
+                <FaGlobe className="career-icon" />
+                <span>Web Developer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -1089,7 +1097,6 @@ export default function MERNStackPage() {
                   alt="Java Course Image"
                   className="gallery-image"
                 />
-
               </div>
             </Col>
 
@@ -1130,14 +1137,13 @@ export default function MERNStackPage() {
           </Row>
         </Container>
       </section>
-      
 
-      <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

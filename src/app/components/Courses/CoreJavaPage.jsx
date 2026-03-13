@@ -8,7 +8,10 @@ import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 
 import {
-  FaJava, FaCode, FaServer, FaLaptopCode, 
+  FaJava,
+  FaCode,
+  FaServer,
+  FaLaptopCode,
   FaUserGraduate,
   FaBriefcase,
   FaHeart,
@@ -22,7 +25,6 @@ import {
   FaClock,
   FaRupeeSign,
   FaWallet,
-
   FaCogs,
   FaGlobe,
   FaVideo,
@@ -313,38 +315,41 @@ export default function CoreJavaPage() {
             </p>
 
             <div className="hero-buttons">
-                <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Core Java";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
             </div>
           </div>
 
           {/* RIGHT VIDEO */}
           <div className="java-hero-right">
-            
-              <img
-                src={publicUrlFor("images/courses/CoreJavaH.jpg")}
-                alt="Java Course Image"
-                style={{
-                  width: "500px",
-                  height: "400px",
-                  objectFit: "contain",
-                }}
-              />
-
-           
+            <img
+              src={publicUrlFor("images/courses/CoreJavaH.jpg")}
+              alt="Java Course Image"
+              style={{
+                width: "500px",
+                height: "400px",
+                objectFit: "contain",
+              }}
+            />
           </div>
         </div>
       </section>
@@ -384,9 +389,7 @@ export default function CoreJavaPage() {
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
             <div className="about-content-col">
-              <h2 className="angular-title">
-                About the Core Java Course
-              </h2>
+              <h2 className="angular-title">About the Core Java Course</h2>
 
               <p>
                 The Core Java Programming Course at Orange ITech is your gateway
@@ -408,7 +411,6 @@ export default function CoreJavaPage() {
             </div>
 
             {/* RIGHT IMAGE */}
-            
           </Row>
         </Container>
       </section>
@@ -776,77 +778,77 @@ export default function CoreJavaPage() {
           </p>
 
           {/* ROLE CARDS */}
-      <Row className="gy-4 mt-4">
-  {/* Java Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaJava className="career-icon" />
-      <span>Java Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Java Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaJava className="career-icon" />
+                <span>Java Developer</span>
+              </div>
+            </Col>
 
-  {/* Software Engineer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaCode className="career-icon" />
-      <span>Software Engineer</span>
-    </div>
-  </Col>
+            {/* Software Engineer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaCode className="career-icon" />
+                <span>Software Engineer</span>
+              </div>
+            </Col>
 
-  {/* Backend Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaServer className="career-icon" />
-      <span>Backend Developer</span>
-    </div>
-  </Col>
+            {/* Backend Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaServer className="career-icon" />
+                <span>Backend Developer</span>
+              </div>
+            </Col>
 
-  {/* Application Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaLaptopCode className="career-icon" />
-      <span>Application Developer</span>
-    </div>
-  </Col>
+            {/* Application Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaLaptopCode className="career-icon" />
+                <span>Application Developer</span>
+              </div>
+            </Col>
 
-  {/* Junior Full-Stack Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaLaptopCode className="career-icon" />
-      <span>Junior Full-Stack Developer</span>
-    </div>
-  </Col>
+            {/* Junior Full-Stack Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaLaptopCode className="career-icon" />
+                <span>Junior Full-Stack Developer</span>
+              </div>
+            </Col>
 
-  {/* Core Java Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaGlobe className="career-icon" />
-      <span>Core Java Developer</span>
-    </div>
-  </Col>
-</Row>
+            {/* Core Java Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaGlobe className="career-icon" />
+                <span>Core Java Developer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
-           Core Java Course are in high demand across IT services, startups,
+            Core Java Course are in high demand across IT services, startups,
             product companies, fintech, and enterprise organizations.
           </p>
         </Container>
@@ -873,16 +875,19 @@ export default function CoreJavaPage() {
 
                 <h3 className="certification-subtitle">
                   Earn a Master Certification in <br />{" "}
-                  <strong> Core Java Course
- </strong>
+                  <strong> Core Java Course</strong>
                 </h3>
 
                 <p className="certification-text">
-                  Get recognized for your expertise with a Master Certification in Core Java Course  This industry-recognized certificate validates your skills and makes you stand out in the job market.
-
+                  Get recognized for your expertise with a Master Certification
+                  in Core Java Course This industry-recognized certificate
+                  validates your skills and makes you stand out in the job
+                  market.
                 </p>
-                <p>Join the Core Java Course and gain the skills, confidence, and industry exposure needed to succeed as a Java developer.
-</p>
+                <p>
+                  Join the Core Java Course and gain the skills, confidence, and
+                  industry exposure needed to succeed as a Java developer.
+                </p>
 
                 {/* <Button className="certification-btn">Get Certified</Button> */}
               </div>
@@ -890,13 +895,13 @@ export default function CoreJavaPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

@@ -19,9 +19,9 @@ body {
 .contact-head-section {
   width: 100%;
   min-height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+  /* background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
     url("../../../../public//assets/images//Contact//contact-backgroud.png")
-      center / cover no-repeat;
+      center / cover no-repeat; */
   display: flex;
   align-items: center;
   color: #ffffff;

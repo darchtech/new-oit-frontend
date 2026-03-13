@@ -9,7 +9,9 @@ import { NavLink } from "react-router-dom";
 
 import { SiAngular } from "react-icons/si";
 import {
-  FaLaptopCode,  FaPaintBrush, FaLaptop,
+  FaLaptopCode,
+  FaPaintBrush,
+  FaLaptop,
   FaUserGraduate,
   FaBriefcase,
   FaCode,
@@ -412,22 +414,30 @@ export default function DotNetFullStackPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                              to="/contact-form"
-                              className="btn-primary"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Download Syllabus
-                            </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "Angular Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -483,12 +493,10 @@ export default function DotNetFullStackPage() {
         <Container>
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
-              <h2 className="angular-title">
-                Become a Skilled Angular Developer
-              </h2>
+            <h2 className="angular-title">
+              Become a Skilled Angular Developer
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-            
-
               {/* <p>
                Master the art of building dynamic, scalable, and high-performance web applications with the Angular Development Course at Orange ITech. Designed for beginners and aspiring front-end developers, this course takes you from Angular fundamentals to advanced concepts used in real-world applications.
 
@@ -913,68 +921,67 @@ export default function DotNetFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-        <Row className="gy-4 mt-4">
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <SiAngular className="career-icon" />
-      <span>Angular Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <SiAngular className="career-icon" />
+                <span>Angular Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaLaptopCode className="career-icon" />
-      <span>Front-End Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaLaptopCode className="career-icon" />
+                <span>Front-End Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaServer className="career-icon" />
-      <span>Web Application Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaServer className="career-icon" />
+                <span>Web Application Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaPaintBrush className="career-icon" />
-      <span>UI Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaPaintBrush className="career-icon" />
+                <span>UI Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaLaptop className="career-icon" />
-      <span>Enterprise Application Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaLaptop className="career-icon" />
+                <span>Enterprise Application Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <SiAngular className="career-icon" />
-      <span>Angular Consultant</span>
-    </div>
-  </Col>
-</Row>
-
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <SiAngular className="career-icon" />
+                <span>Angular Consultant</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -1024,13 +1031,13 @@ export default function DotNetFullStackPage() {
           </Row>
         </Container>
       </section>
-    
-    <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-         <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

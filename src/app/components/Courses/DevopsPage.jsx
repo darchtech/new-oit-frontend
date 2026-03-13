@@ -267,22 +267,27 @@ export default function JavaFullStackPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "DevOps";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
             </div>
           </div>
 
@@ -747,56 +752,56 @@ export default function JavaFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-        
-<Row className="gy-4 mt-4">
-  {/* DevOps Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaTools className="career-icon" />
-      <span>DevOps Engineer</span>
-    </div>
-  </Col>
 
-  {/* Cloud Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaCloud className="career-icon" />
-      <span>Cloud Engineer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* DevOps Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaTools className="career-icon" />
+                <span>DevOps Engineer</span>
+              </div>
+            </Col>
 
-  {/* Site Reliability Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaServer className="career-icon" />
-      <span>Site Reliability Engineer (SRE)</span>
-    </div>
-  </Col>
+            {/* Cloud Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCloud className="career-icon" />
+                <span>Cloud Engineer</span>
+              </div>
+            </Col>
 
-  {/* Build & Release Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaCodeBranch className="career-icon" />
-      <span>Build & Release Engineer</span>
-    </div>
-  </Col>
+            {/* Site Reliability Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaServer className="career-icon" />
+                <span>Site Reliability Engineer (SRE)</span>
+              </div>
+            </Col>
 
-  {/* Business Intelligence Analyst */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaDatabase className="career-icon" />
-      <span>Business Intelligence Analyst</span>
-    </div>
-  </Col>
+            {/* Build & Release Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCodeBranch className="career-icon" />
+                <span>Build & Release Engineer</span>
+              </div>
+            </Col>
 
-  {/* Automation Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaRobot className="career-icon" />
-      <span>Automation Engineer</span>
-    </div>
-  </Col>
-</Row>
+            {/* Business Intelligence Analyst */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaDatabase className="career-icon" />
+                <span>Business Intelligence Analyst</span>
+              </div>
+            </Col>
+
+            {/* Automation Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaRobot className="career-icon" />
+                <span>Automation Engineer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -842,13 +847,13 @@ export default function JavaFullStackPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

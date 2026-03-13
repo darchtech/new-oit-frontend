@@ -76,7 +76,7 @@ function Placement() {
                 Start Your Career Journey
               </h6>
 
-             <h1 className="" style={{ color: "orange" }}>
+             <h1 className="" style={{ color: "#830606" }}>
   <b>Turning Skills into Careers 
   Learning to Professional <br /> Excellence</b>
 </h1>

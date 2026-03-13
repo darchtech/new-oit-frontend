@@ -8,7 +8,11 @@ import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 
 import {
-  FaCode, FaMicrochip,  FaLaptopCode, FaGamepad, FaLaptop,
+  FaCode,
+  FaMicrochip,
+  FaLaptopCode,
+  FaGamepad,
+  FaLaptop,
   FaUserGraduate,
   FaBriefcase,
   FaHeart,
@@ -304,39 +308,41 @@ export default function CProgrammingPage() {
             </p>
 
             <div className="hero-buttons">
-                 <NavLink
-                                to="/contact-form"
-                                className="btn-primary"
-                                style={{ textDecoration: "none" }}
-                              >
-                                Download Syllabus
-                              </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "C Programming";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
           {/* RIGHT VIDEO */}
           <div className="java-hero-right">
-            
-              <img
-                src={publicUrlFor("images/courses/Heroc.jpg")}
-                alt="Java Course Image"
-                style={{
-                  width: "500px",
-                  height: "400px",
-                  objectFit: "contain",
-                }}
-              />
-
-         
+            <img
+              src={publicUrlFor("images/courses/Heroc.jpg")}
+              alt="Java Course Image"
+              style={{
+                width: "500px",
+                height: "400px",
+                objectFit: "contain",
+              }}
+            />
           </div>
         </div>
       </section>
@@ -394,7 +400,6 @@ export default function CProgrammingPage() {
             </div>
 
             {/* RIGHT IMAGE */}
-            
           </Row>
         </Container>
       </section>
@@ -554,7 +559,7 @@ export default function CProgrammingPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -742,55 +747,55 @@ export default function CProgrammingPage() {
           </p>
 
           {/* ROLE CARDS */}
-        <Row className="gy-4 mt-4">
-      {/* Software Developer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaCode className="career-icon" />
-          <span>Software Developer</span>
-        </div>
-      </Col>
+          <Row className="gy-4 mt-4">
+            {/* Software Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCode className="career-icon" />
+                <span>Software Developer</span>
+              </div>
+            </Col>
 
-      {/* Embedded Systems Engineer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaMicrochip className="career-icon" />
-          <span>Embedded Systems Engineer</span>
-        </div>
-      </Col>
+            {/* Embedded Systems Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaMicrochip className="career-icon" />
+                <span>Embedded Systems Engineer</span>
+              </div>
+            </Col>
 
-      {/* System Programmer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaServer className="career-icon" />
-          <span>System Programmer</span>
-        </div>
-      </Col>
+            {/* System Programmer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaServer className="career-icon" />
+                <span>System Programmer</span>
+              </div>
+            </Col>
 
-      {/* Foundation for C++, Java, Python, and Data Structures */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaLaptop className="career-icon" />
-          <span>Full-stack Developer</span>
-        </div>
-      </Col>
+            {/* Foundation for C++, Java, Python, and Data Structures */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptop className="career-icon" />
+                <span>Full-stack Developer</span>
+              </div>
+            </Col>
 
-      {/* Firmware Engineer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaLaptopCode className="career-icon" />
-          <span>Firmware Engineer</span>
-        </div>
-      </Col>
+            {/* Firmware Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptopCode className="career-icon" />
+                <span>Firmware Engineer</span>
+              </div>
+            </Col>
 
-      {/* Game Engine Developer */}
-      <Col md={4}>
-        <div className="career-card">
-          <FaGamepad className="career-icon" />
-          <span>Game Engine Developer</span>
-        </div>
-      </Col>
-    </Row>
+            {/* Game Engine Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaGamepad className="career-icon" />
+                <span>Game Engine Developer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -838,13 +843,13 @@ export default function CProgrammingPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

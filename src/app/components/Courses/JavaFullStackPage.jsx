@@ -630,13 +630,22 @@ export default function JavaFullStackPage() {
                 Download Syllabus
               </a> */}
 
-              <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "Java Full Stack Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
-              </NavLink>
+              </button>
 
               <NavLink
                 to="/contact-us"
@@ -1216,8 +1225,8 @@ export default function JavaFullStackPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">

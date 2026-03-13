@@ -533,22 +533,30 @@ export default function PythonFullStackPage() {
             </p>
 
             <div className="hero-buttons">
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "Python Full Stack Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
               <NavLink
-                             to="/contact-form"
-                             className="btn-primary"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Download Syllabus
-                           </NavLink>
-             
-                   
-                           <NavLink
-                             to="/contact-us"
-                             className="btn-outline"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Enroll Now
-                           </NavLink>
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -605,10 +613,9 @@ export default function PythonFullStackPage() {
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
             <h2 className="angular-title">
-                About the Python Development Career Training Program
-              </h2>
+              About the Python Development Career Training Program
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-              
               <p>
                 At Orange ITech, we offer one of the most comprehensive and
                 industry-oriented Python Development Career Training Programs,
@@ -804,7 +811,7 @@ export default function PythonFullStackPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -998,49 +1005,49 @@ export default function PythonFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-      <Row className="gy-4 mt-4">
-  <Col md={4}>
-    <div className="career-card">
-      <FaPython className="career-icon" />
-      <span>Python Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            <Col md={4}>
+              <div className="career-card">
+                <FaPython className="career-icon" />
+                <span>Python Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaCogs className="career-icon" />
-      <span>Junior Data Scientist</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaCogs className="career-icon" />
+                <span>Junior Data Scientist</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaServer className="career-icon" />
-      <span>Software Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaServer className="career-icon" />
+                <span>Software Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaChartBar className="career-icon" />
-      <span>Data Analyst</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaChartBar className="career-icon" />
+                <span>Data Analyst</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaRobot className="career-icon" />
-      <span>Automation Engineer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaRobot className="career-icon" />
+                <span>Automation Engineer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaLaptopCode className="career-icon" />
-      <span>Web Developer</span>
-    </div>
-  </Col>
-</Row>
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptopCode className="career-icon" />
+                <span>Web Developer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -1056,7 +1063,7 @@ export default function PythonFullStackPage() {
             {/* LEFT: CERTIFICATE IMAGE */}
             <Col lg={6} md={12} className="text-center mb-4 mb-lg-0">
               <div className="certificate-image-wrapper">
-               <img
+                <img
                   src={publicUrlFor("images/courses/CertificateImg.jpg")}
                   alt="Java Course Image"
                   className="gallery-image"
@@ -1088,14 +1095,13 @@ export default function PythonFullStackPage() {
           </Row>
         </Container>
       </section>
-     
 
-     <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

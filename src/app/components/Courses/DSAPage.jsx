@@ -453,36 +453,41 @@ export default function DSAPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Data Structures and Algorithms";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-             
-                   
-                           <NavLink
-                             to="/contact-us"
-                             className="btn-outline"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Enroll Now
-                           </NavLink>
             </div>
           </div>
 
           {/* RIGHT VIDEO */}
           <div className="java-hero-right">
             <img
-                            src={publicUrlFor("images/courses/DSAH.jpg")}
-                            alt="Java Course Image"
-                            style={{
-                              width: "500px",
-                              height: "400px",
-                              objectFit: "contain",
-                            }}
-                          />
+              src={publicUrlFor("images/courses/DSAH.jpg")}
+              alt="Java Course Image"
+              style={{
+                width: "500px",
+                height: "400px",
+                objectFit: "contain",
+              }}
+            />
           </div>
         </div>
       </section>
@@ -735,7 +740,7 @@ export default function DSAPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -928,55 +933,55 @@ export default function DSAPage() {
             After completing this course, you can apply for roles such as:
           </p>
 
-       <Row className="gy-4 mt-4">
-  {/* Software Developer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaCode className="career-icon" />
-      <span>Software Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Software Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCode className="career-icon" />
+                <span>Software Developer</span>
+              </div>
+            </Col>
 
-  {/* Backend Developer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaServer className="career-icon" />
-      <span>Backend Developer</span>
-    </div>
-  </Col>
+            {/* Backend Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaServer className="career-icon" />
+                <span>Backend Developer</span>
+              </div>
+            </Col>
 
-  {/* Full-Stack Developer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaLayerGroup className="career-icon" />
-      <span>Full-Stack Developer</span>
-    </div>
-  </Col>
+            {/* Full-Stack Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaLayerGroup className="career-icon" />
+                <span>Full-Stack Developer</span>
+              </div>
+            </Col>
 
-  {/* Product Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaCogs className="career-icon" />
-      <span>Product Engineer</span>
-    </div>
-  </Col>
+            {/* Product Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCogs className="career-icon" />
+                <span>Product Engineer</span>
+              </div>
+            </Col>
 
-  {/* Competitive Programmer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaLaptopCode className="career-icon" />
-      <span>Competitive Programmer</span>
-    </div>
-  </Col>
+            {/* Competitive Programmer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptopCode className="career-icon" />
+                <span>Competitive Programmer</span>
+              </div>
+            </Col>
 
-  {/* Problem Solving Techniques */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaPuzzlePiece className="career-icon" />
-      <span>Problem Solving Techniques</span>
-    </div>
-  </Col>
-</Row>
+            {/* Problem Solving Techniques */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPuzzlePiece className="career-icon" />
+                <span>Problem Solving Techniques</span>
+              </div>
+            </Col>
+          </Row>
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
             Data Structures and Algorithms are in high demand across IT
@@ -1023,14 +1028,13 @@ export default function DSAPage() {
           </Row>
         </Container>
       </section>
-     
 
-     <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

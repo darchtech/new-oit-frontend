@@ -403,22 +403,30 @@ export default function JavaFullStackPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                              to="/contact-form"
-                              className="btn-primary"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Download Syllabus
-                            </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "Cyber Security";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -474,7 +482,7 @@ export default function JavaFullStackPage() {
         <Container>
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
-            <h2 className="angular-title">About Cyber Security  Course</h2>
+            <h2 className="angular-title">About Cyber Security Course</h2>
 
             <Col lg={6} md={6} className="about-content-col">
               <p>
@@ -699,7 +707,7 @@ export default function JavaFullStackPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -892,55 +900,55 @@ export default function JavaFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-        <Row className="gy-4 mt-4">
-  {/* Cyber Security Analyst */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaShieldAlt className="career-icon" />
-      <span>Cyber Security Analyst</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Cyber Security Analyst */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaShieldAlt className="career-icon" />
+                <span>Cyber Security Analyst</span>
+              </div>
+            </Col>
 
-  {/* Ethical Hacker */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaUserSecret className="career-icon" />
-      <span>Ethical Hacker</span>
-    </div>
-  </Col>
+            {/* Ethical Hacker */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaUserSecret className="career-icon" />
+                <span>Ethical Hacker</span>
+              </div>
+            </Col>
 
-  {/* Network Security Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaNetworkWired className="career-icon" />
-      <span>Network Security Engineer</span>
-    </div>
-  </Col>
+            {/* Network Security Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaNetworkWired className="career-icon" />
+                <span>Network Security Engineer</span>
+              </div>
+            </Col>
 
-  {/* SOC Analyst */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaEye className="career-icon" />
-      <span>SOC Analyst</span>
-    </div>
-  </Col>
+            {/* SOC Analyst */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaEye className="career-icon" />
+                <span>SOC Analyst</span>
+              </div>
+            </Col>
 
-  {/* Information Security Specialist */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaLock className="career-icon" />
-      <span>Information Security Specialist</span>
-    </div>
-  </Col>
+            {/* Information Security Specialist */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaLock className="career-icon" />
+                <span>Information Security Specialist</span>
+              </div>
+            </Col>
 
-  {/* Digital Forensics */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaSearch className="career-icon" />
-      <span>Digital Forensics</span>
-    </div>
-  </Col>
-</Row>
+            {/* Digital Forensics */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaSearch className="career-icon" />
+                <span>Digital Forensics</span>
+              </div>
+            </Col>
+          </Row>
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
             Cyber Security are in high demand across IT services, startups,
@@ -955,7 +963,7 @@ export default function JavaFullStackPage() {
             {/* LEFT: CERTIFICATE IMAGE */}
             <Col lg={6} md={12} className="text-center mb-4 mb-lg-0">
               <div className="certificate-image-wrapper">
-               <img
+                <img
                   src={publicUrlFor("images/courses/CertificateImg.jpg")}
                   alt="Java Course Image"
                   className="gallery-image"
@@ -986,13 +994,13 @@ export default function JavaFullStackPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

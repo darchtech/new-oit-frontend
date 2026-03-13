@@ -335,22 +335,27 @@ export default function AdvanceJavaPage() {
             </p>
 
             <div className="hero-buttons">
-                <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Advance Java";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
             </div>
           </div>
 
@@ -619,7 +624,7 @@ export default function AdvanceJavaPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -807,99 +812,98 @@ export default function AdvanceJavaPage() {
             After completing this course, you can apply for roles such as:
           </p>
 
-         {/* ROLE CARDS */}
-<Row className="gy-4 mt-4">
-  {/* Java Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}
-    >
-      <FaJava className="career-icon" />
-      <span>Java Developer</span>
-    </div>
-  </Col>
+          {/* ROLE CARDS */}
+          <Row className="gy-4 mt-4">
+            {/* Java Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                <FaJava className="career-icon" />
+                <span>Java Developer</span>
+              </div>
+            </Col>
 
-  {/* Backend Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}
-    >
-      <FaServer className="career-icon" />
-      <span>Backend Developer</span>
-    </div>
-  </Col>
+            {/* Backend Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                <FaServer className="career-icon" />
+                <span>Backend Developer</span>
+              </div>
+            </Col>
 
-  {/* Spring Boot Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}
-    >
-      <FaLeaf className="career-icon" />
-      <span>Spring Boot Developer</span>
-    </div>
-  </Col>
+            {/* Spring Boot Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                <FaLeaf className="career-icon" />
+                <span>Spring Boot Developer</span>
+              </div>
+            </Col>
 
-  {/* Software Engineer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}
-    >
-      <FaCode className="career-icon" />
-      <span>Software Engineer</span>
-    </div>
-  </Col>
+            {/* Software Engineer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                <FaCode className="career-icon" />
+                <span>Software Engineer</span>
+              </div>
+            </Col>
 
-  {/* Full-Stack Java Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}
-    >
-      <FaLayerGroup className="career-icon" />
-      <span>Full-Stack Java Developer</span>
-    </div>
-  </Col>
+            {/* Full-Stack Java Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                <FaLayerGroup className="career-icon" />
+                <span>Full-Stack Java Developer</span>
+              </div>
+            </Col>
 
-  {/* Maven */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-      }}
-    >
-      <FaCubes className="career-icon" />
-      <span>Maven</span>
-    </div>
-  </Col>
-</Row>
-
+            {/* Maven */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
+              >
+                <FaCubes className="career-icon" />
+                <span>Maven</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -946,13 +950,13 @@ export default function AdvanceJavaPage() {
           </Row>
         </Container>
       </section>
-    
-    <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

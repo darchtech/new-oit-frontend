@@ -1,20 +1,22 @@
 import ScrollToTop from "./app/elements/scroll-to-top";
 import RootLayout from "./layouts/root-layout";
 import Loader from "./app/elements/loader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import FloatingSocialButtons from "./app/components/FloatingSocialButtons";
 
 function App() {
-
   const [isLoading, setLoading] = useState(true);
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-      { isLoading && <Loader /> }
+      {isLoading && <Loader />}
       <ScrollToTop />
       <RootLayout />
       {/* <FloatingSocialButtons/> */}

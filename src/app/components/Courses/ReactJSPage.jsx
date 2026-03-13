@@ -414,21 +414,30 @@ export default function DotNetFullStackPage() {
             </p>
 
             <div className="hero-buttons">
-              <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "React JS Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-                   
-                           <NavLink
-                             to="/contact-us"
-                             className="btn-outline"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Enroll Now
-                           </NavLink>
             </div>
           </div>
 
@@ -484,11 +493,10 @@ export default function DotNetFullStackPage() {
         <Container>
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
-              <h2 className="angular-title">
-                Become a Skilled React JS Developer
-              </h2>
+            <h2 className="angular-title">
+              Become a Skilled React JS Developer
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-            
               <p>
                 Kickstart your journey into modern web development with the
                 React JS Development Course at Orange ITech. This course is
@@ -1006,14 +1014,13 @@ export default function DotNetFullStackPage() {
           </Row>
         </Container>
       </section>
-     
 
-     <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

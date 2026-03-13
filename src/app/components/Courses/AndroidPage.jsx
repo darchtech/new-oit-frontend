@@ -1,4 +1,3 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { Container, Button } from "react-bootstrap";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -9,7 +8,11 @@ import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 
 import {
-  FaAndroid, FaMobileAlt, FaLaptopCode, FaPaintBrush, FaCode,
+  FaAndroid,
+  FaMobileAlt,
+  FaLaptopCode,
+  FaPaintBrush,
+  FaCode,
   FaUserGraduate,
   FaBriefcase,
   FaHeart,
@@ -359,22 +362,27 @@ export default function AndroidPage() {
             </p>
 
             <div className="hero-buttons">
-                <NavLink
-                to="/contact-form"
+              <button
                 className="btn-primary"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Android Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
               >
                 Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
               </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
             </div>
           </div>
 
@@ -430,11 +438,11 @@ export default function AndroidPage() {
         <Container>
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
-             <h2 className="angular-title">
-                Become a Skilled Android App Developer
-              </h2>
+            <h2 className="angular-title">
+              Become a Skilled Android App Developer
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-             <br />
+              <br />
               <p>
                 Build powerful, modern mobile applications with the Android
                 Development Course at Orange ITech. Designed for beginners and
@@ -853,73 +861,73 @@ export default function AndroidPage() {
           </p>
 
           {/* ROLE CARDS */}
-      <Row className="gy-4 mt-4">
-  {/* Android App Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaAndroid className="career-icon" />
-      <span>Android App Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Android App Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaAndroid className="career-icon" />
+                <span>Android App Developer</span>
+              </div>
+            </Col>
 
-  {/* Mobile Application Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaMobileAlt className="career-icon" />
-      <span>Mobile Application Developer</span>
-    </div>
-  </Col>
+            {/* Mobile Application Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaMobileAlt className="career-icon" />
+                <span>Mobile Application Developer</span>
+              </div>
+            </Col>
 
-  {/* Kotlin Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaServer className="career-icon" />
-      <span>Kotlin Developer</span>
-    </div>
-  </Col>
+            {/* Kotlin Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaServer className="career-icon" />
+                <span>Kotlin Developer</span>
+              </div>
+            </Col>
 
-  {/* Software Engineer (Android) */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaCode className="career-icon" />
-      <span>Software Engineer (Android)</span>
-    </div>
-  </Col>
+            {/* Software Engineer (Android) */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaCode className="career-icon" />
+                <span>Software Engineer (Android)</span>
+              </div>
+            </Col>
 
-  {/* Android UI/UX Developer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaPaintBrush className="career-icon" />
-      <span>Android UI/UX Developer</span>
-    </div>
-  </Col>
+            {/* Android UI/UX Developer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaPaintBrush className="career-icon" />
+                <span>Android UI/UX Developer</span>
+              </div>
+            </Col>
 
-  {/* Mobile Software Engineer */}
-  <Col md={4}>
-    <div
-      className="career-card"
-      style={{ display: "flex", alignItems: "center", gap: "12px" }}
-    >
-      <FaLaptopCode className="career-icon" />
-      <span>Mobile Software Engineer</span>
-    </div>
-  </Col>
-</Row>
+            {/* Mobile Software Engineer */}
+            <Col md={4}>
+              <div
+                className="career-card"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <FaLaptopCode className="career-icon" />
+                <span>Mobile Software Engineer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -970,12 +978,12 @@ export default function AndroidPage() {
           </Row>
         </Container>
       </section>
-     <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

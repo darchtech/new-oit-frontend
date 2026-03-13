@@ -339,21 +339,27 @@ export default function UIUXDeveloperPage() {
             </p>
 
             <div className="hero-buttons">
-             <NavLink
-                            to="/contact-form"
-                            className="btn-primary"
-                            style={{ textDecoration: "none" }}
-                          >
-                            Download Syllabus
-                          </NavLink>
-                  
-                          <NavLink
-                            to="/contact-us"
-                            className="btn-outline"
-                            style={{ textDecoration: "none" }}
-                          >
-                            Enroll Now
-                          </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "UI/UX Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -410,11 +416,10 @@ export default function UIUXDeveloperPage() {
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
             <h2 className="angular-title">
-                About the UI/UX Development Course
-              </h2>
+              About the UI/UX Development Course
+            </h2>
 
             <Col lg={6} md={6} className="about-content-col">
-              
               <p>
                 The UI/UX Development Roadmap Course at Orange ITech is a
                 comprehensive, beginner-to-advanced program designed to help you
@@ -561,10 +566,7 @@ export default function UIUXDeveloperPage() {
       {/* ===== CURRICULUM ===== */}
       <section className="syllabus-wrapper">
         <div className="syllabus-container">
-          <h4 className="about-title">
-           
-            UI/UX Development Curriculum Overview
-          </h4>
+          <h4 className="about-title">UI/UX Development Curriculum Overview</h4>
 
           <p className="faq-subtitle">
             Our UI/UX Development course syllabus is structured to cover
@@ -636,7 +638,7 @@ export default function UIUXDeveloperPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -827,55 +829,55 @@ export default function UIUXDeveloperPage() {
           </p>
 
           {/* ROLE CARDS */}
-     <Row className="gy-4 mt-4">
-  {/* UI Designer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaPalette className="career-icon" />
-      <span>UI Designer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* UI Designer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPalette className="career-icon" />
+                <span>UI Designer</span>
+              </div>
+            </Col>
 
-  {/* UX Designer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaUserCheck className="career-icon" />
-      <span>UX Designer</span>
-    </div>
-  </Col>
+            {/* UX Designer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaUserCheck className="career-icon" />
+                <span>UX Designer</span>
+              </div>
+            </Col>
 
-  {/* Web Designer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaPaintBrush className="career-icon" />
-      <span>Web Designer</span>
-    </div>
-  </Col>
+            {/* Web Designer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPaintBrush className="career-icon" />
+                <span>Web Designer</span>
+              </div>
+            </Col>
 
-  {/* Product Designer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaBoxOpen className="career-icon" />
-      <span>Product Designer</span>
-    </div>
-  </Col>
+            {/* Product Designer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaBoxOpen className="career-icon" />
+                <span>Product Designer</span>
+              </div>
+            </Col>
 
-  {/* Interaction Designer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaMousePointer className="career-icon" />
-      <span>Interaction Designer</span>
-    </div>
-  </Col>
+            {/* Interaction Designer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaMousePointer className="career-icon" />
+                <span>Interaction Designer</span>
+              </div>
+            </Col>
 
-  {/* Content Marketing */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaFileAlt className="career-icon" />
-      <span>Content Marketing</span>
-    </div>
-  </Col>
-</Row>
+            {/* Content Marketing */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaFileAlt className="career-icon" />
+                <span>Content Marketing</span>
+              </div>
+            </Col>
+          </Row>
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
             UI/UX Development are in high demand across IT services, startups,
@@ -890,7 +892,7 @@ export default function UIUXDeveloperPage() {
             {/* LEFT: CERTIFICATE IMAGE */}
             <Col lg={6} md={12} className="text-center mb-4 mb-lg-0">
               <div className="certificate-image-wrapper">
-               <img
+                <img
                   src={publicUrlFor("images/courses/CertificateImg.jpg")}
                   alt="Java Course Image"
                   className="gallery-image"
@@ -921,13 +923,13 @@ export default function UIUXDeveloperPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

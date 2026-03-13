@@ -392,22 +392,30 @@ export default function JavaFullStackPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                              to="/contact-form"
-                              className="btn-primary"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Download Syllabus
-                            </NavLink>
-             
-                   
-                           <NavLink
-                             to="/contact-us"
-                             className="btn-outline"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Enroll Now
-                           </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  // Open WhatsApp in new tab
+                  const courseName = "Salesforce Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+
+                  // Navigate to contact form in current tab
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -691,7 +699,7 @@ export default function JavaFullStackPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -883,55 +891,55 @@ export default function JavaFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-         <Row className="gy-4 mt-4">
-  {/* Salesforce Developer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaCloud className="career-icon" />
-      <span>Salesforce Developer</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Salesforce Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaCloud className="career-icon" />
+                <span>Salesforce Developer</span>
+              </div>
+            </Col>
 
-  {/* Salesforce Administrator */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaUserCog className="career-icon" />
-      <span>Salesforce Administrator</span>
-    </div>
-  </Col>
+            {/* Salesforce Administrator */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaUserCog className="career-icon" />
+                <span>Salesforce Administrator</span>
+              </div>
+            </Col>
 
-  {/* CRM Consultant */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaHandshake className="career-icon" />
-      <span>CRM Consultant</span>
-    </div>
-  </Col>
+            {/* CRM Consultant */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaHandshake className="career-icon" />
+                <span>CRM Consultant</span>
+              </div>
+            </Col>
 
-  {/* Salesforce Technical Consultant */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaTools className="career-icon" />
-      <span>Salesforce Technical Consultant</span>
-    </div>
-  </Col>
+            {/* Salesforce Technical Consultant */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaTools className="career-icon" />
+                <span>Salesforce Technical Consultant</span>
+              </div>
+            </Col>
 
-  {/* Salesforce Support Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaHeadset className="career-icon" />
-      <span>Salesforce Support Engineer</span>
-    </div>
-  </Col>
+            {/* Salesforce Support Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaHeadset className="career-icon" />
+                <span>Salesforce Support Engineer</span>
+              </div>
+            </Col>
 
-  {/* Salesforce Security */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaShieldAlt className="career-icon" />
-      <span>Salesforce Security</span>
-    </div>
-  </Col>
-</Row>
+            {/* Salesforce Security */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaShieldAlt className="career-icon" />
+                <span>Salesforce Security</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -947,7 +955,7 @@ export default function JavaFullStackPage() {
             {/* LEFT: CERTIFICATE IMAGE */}
             <Col lg={6} md={12} className="text-center mb-4 mb-lg-0">
               <div className="certificate-image-wrapper">
-               <img
+                <img
                   src={publicUrlFor("images/courses/CertificateImg.jpg")}
                   alt="Java Course Image"
                   className="gallery-image"
@@ -978,13 +986,13 @@ export default function JavaFullStackPage() {
           </Row>
         </Container>
       </section>
-     
-     <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

@@ -495,22 +495,27 @@ export default function JavaFullStackPage() {
             </p>
 
             <div className="hero-buttons">
-               <NavLink
-                              to="/contact-form"
-                              className="btn-primary"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Download Syllabus
-                            </NavLink>
-              
-                    
-                            <NavLink
-                              to="/contact-us"
-                              className="btn-outline"
-                              style={{ textDecoration: "none" }}
-                            >
-                              Enroll Now
-                            </NavLink>
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "Data Science & AI";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
+              <NavLink
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -567,11 +572,9 @@ export default function JavaFullStackPage() {
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
             <h2 className="angular-title">
-                About the Data Science & AI Course
-              </h2>
+              About the Data Science & AI Course
+            </h2>
             <Col lg={6} md={6} className="about-content-col">
-              
-
               <p>
                 The Data Science & AI course at Orange ITech is a comprehensive,
                 industry-oriented program designed to help you master data
@@ -794,7 +797,7 @@ export default function JavaFullStackPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -988,55 +991,55 @@ export default function JavaFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-        <Row className="gy-4 mt-4">
-  {/* Data Scientist */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaChartLine className="career-icon" />
-      <span>Data Scientist</span>
-    </div>
-  </Col>
+          <Row className="gy-4 mt-4">
+            {/* Data Scientist */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaChartLine className="career-icon" />
+                <span>Data Scientist</span>
+              </div>
+            </Col>
 
-  {/* Machine Learning Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaRobot className="career-icon" />
-      <span>Machine Learning Engineer</span>
-    </div>
-  </Col>
+            {/* Machine Learning Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaRobot className="career-icon" />
+                <span>Machine Learning Engineer</span>
+              </div>
+            </Col>
 
-  {/* AI Engineer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaBrain className="career-icon" />
-      <span>AI Engineer</span>
-    </div>
-  </Col>
+            {/* AI Engineer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaBrain className="career-icon" />
+                <span>AI Engineer</span>
+              </div>
+            </Col>
 
-  {/* Data Analyst */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaChartBar className="career-icon" />
-      <span>Data Analyst</span>
-    </div>
-  </Col>
+            {/* Data Analyst */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaChartBar className="career-icon" />
+                <span>Data Analyst</span>
+              </div>
+            </Col>
 
-  {/* Business Intelligence Analyst */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaDatabase className="career-icon" />
-      <span>Business Intelligence Analyst</span>
-    </div>
-  </Col>
+            {/* Business Intelligence Analyst */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaDatabase className="career-icon" />
+                <span>Business Intelligence Analyst</span>
+              </div>
+            </Col>
 
-  {/* Python Developer */}
-  <Col md={4}>
-    <div className="career-card">
-      <FaPython className="career-icon" />
-      <span>Python Developer</span>
-    </div>
-  </Col>
-</Row>
+            {/* Python Developer */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPython className="career-icon" />
+                <span>Python Developer</span>
+              </div>
+            </Col>
+          </Row>
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
             Data Science And AI are in high demand across IT services, startups,
@@ -1082,13 +1085,13 @@ export default function JavaFullStackPage() {
           </Row>
         </Container>
       </section>
-    
-    <FloatingSocialButtons/>
+
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-           <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

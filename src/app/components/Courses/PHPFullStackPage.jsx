@@ -8,7 +8,7 @@ import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 
 import {
-  FaPhp ,
+  FaPhp,
   FaUserGraduate,
   FaBriefcase,
   FaCode,
@@ -492,22 +492,27 @@ export default function PHPFullStackPage() {
             </p>
 
             <div className="hero-buttons">
+              <button
+                className="btn-primary"
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={() => {
+                  const courseName = "PHP Full Stack Development";
+                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
+                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                  window.location.href = "/contact-form";
+                }}
+              >
+                Download Syllabus
+              </button>
+
               <NavLink
-                             to="/contact-form"
-                             className="btn-primary"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Download Syllabus
-                           </NavLink>
-             
-                   
-                           <NavLink
-                             to="/contact-us"
-                             className="btn-outline"
-                             style={{ textDecoration: "none" }}
-                           >
-                             Enroll Now
-                           </NavLink>
+                to="/contact-us"
+                className="btn-outline"
+                style={{ textDecoration: "none" }}
+              >
+                Enroll Now
+              </NavLink>
             </div>
           </div>
 
@@ -564,11 +569,10 @@ export default function PHPFullStackPage() {
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
             <h2 className="angular-title">
-                About the PHP Full Stack Development Training Course
-              </h2>
+              About the PHP Full Stack Development Training Course
+            </h2>
 
             <Col lg={6} md={6} className="about-content-col">
-              
               <p>
                 Are you ready to build powerful, dynamic websites and modern web
                 applications? The PHP Full Stack Development Course at Orange
@@ -794,7 +798,7 @@ export default function PHPFullStackPage() {
               </p>
 
               {/* <Button className=" "></Button> */}
-               <NavLink
+              <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
                 style={{ textDecoration: "none", width: "180px" }}
@@ -987,51 +991,50 @@ export default function PHPFullStackPage() {
             After completing this course, you can apply for roles such as:
           </p>
 
-         {/* ROLE CARDS */}
-<Row className="gy-4 mt-4">
-  <Col md={4}>
-    <div className="career-card">
-      <FaPhp className="career-icon" />
-      <span>PHP Full Stack Developer</span>
-    </div>
-  </Col>
+          {/* ROLE CARDS */}
+          <Row className="gy-4 mt-4">
+            <Col md={4}>
+              <div className="career-card">
+                <FaPhp className="career-icon" />
+                <span>PHP Full Stack Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaPhp className="career-icon" />
-      <span>PHP Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaPhp className="career-icon" />
+                <span>PHP Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaServer className="career-icon" />
-      <span>Backend Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaServer className="career-icon" />
+                <span>Backend Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaCode className="career-icon" />
-      <span>Frontend Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaCode className="career-icon" />
+                <span>Frontend Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaLaptopCode className="career-icon" />
-      <span>Web Developer</span>
-    </div>
-  </Col>
+            <Col md={4}>
+              <div className="career-card">
+                <FaLaptopCode className="career-icon" />
+                <span>Web Developer</span>
+              </div>
+            </Col>
 
-  <Col md={4}>
-    <div className="career-card">
-      <FaGlobe className="career-icon" />
-      <span>Software Engineer</span>
-    </div>
-  </Col>
-</Row>
-
+            <Col md={4}>
+              <div className="career-card">
+                <FaGlobe className="career-icon" />
+                <span>Software Engineer</span>
+              </div>
+            </Col>
+          </Row>
 
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
@@ -1079,14 +1082,13 @@ export default function PHPFullStackPage() {
           </Row>
         </Container>
       </section>
-     
 
-     <FloatingSocialButtons/>
+      <FloatingSocialButtons />
 
       {/* ===== CTA ===== */}
       <section className="cta-section text-center">
         <h2>Start Your IT Career Today</h2>
-          <NavLink to="/contact-us" className="btn btn-primary cta-btn">
+        <NavLink to="/contact-us" className="btn btn-primary cta-btn">
           Book Free Demo
         </NavLink>
       </section>

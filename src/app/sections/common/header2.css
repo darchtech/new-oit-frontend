@@ -66,15 +66,36 @@ body {
 }
 
 /* =====================================================
-   HEADER WRAPPER
+   HEADER WRAPPER - FIXED POSITION
 ===================================================== */
 .sticky-header {
   background: #fff;
   padding: 10px 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Scrolled state - enhanced shadow and background */
+.header-nav.scrolled .sticky-header {
+  padding: 8px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+/* Add padding to body to prevent content jump when navbar becomes fixed */
+body {
+  padding-top: 0;
+}
+
+.header-nav.scrolled + * {
+  /* This targets the content after the header */
+  margin-top: 0;
 }
 
 /* =====================================================
@@ -197,7 +218,10 @@ body {
     max-height: 0;
     opacity: 0;
     transform: translateY(-10px);
-    transition: max-height 0.45s ease, opacity 0.35s ease, transform 0.35s ease;
+    transition:
+      max-height 0.45s ease,
+      opacity 0.35s ease,
+      transform 0.35s ease;
   }
 
   .header-nav.active .navbar-collapse {
@@ -234,7 +258,9 @@ body {
     box-shadow: none !important;
     transform: none !important;
     gap: 20px;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease;
   }
 
   .header-nav .nav > li:nth-child(2).open > .sub-menu,
@@ -357,17 +383,14 @@ body {
   }
 }
 
-
-
 .header-nav::before {
-  z-index: 999;              /* overlay below menu */
+  z-index: 999; /* overlay below menu */
 }
 
 .header-nav .navbar-collapse {
-  z-index: 1100;             /* menu above overlay */
+  z-index: 1100; /* menu above overlay */
 }
 @media (max-width: 992px) {
-
   .header-nav::before {
     content: "";
     position: fixed;
@@ -403,9 +426,6 @@ body {
   }
 }
 
-
-
-
 /* ===============================
    BODY SCROLL LOCK (MOBILE NAV)
 ================================ */
@@ -415,16 +435,10 @@ body.no-scroll {
   touch-action: none;
 }
 
-
-
-
-
-
 /* ===============================
    MOBILE HEADER FIX — LOGO VISIBLE
 ================================ */
 @media (max-width: 992px) {
-
   /* Header layout */
   .main-bar {
     display: flex;
@@ -490,8 +504,6 @@ body.no-scroll {
   }
 }
 
-
-
 /* ===============================
    NAV MENU UNDERLINE EFFECT
 ================================ */
@@ -523,7 +535,3 @@ body.no-scroll {
 .header-nav .navbar-nav > li > a.active::after {
   width: 100%;
 }
-
-
-
-
