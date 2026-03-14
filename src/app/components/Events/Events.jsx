@@ -240,23 +240,7 @@ function Events() {
       <div className="container">
         <h2 className="events-main-title">Our Training Moments</h2>
 
-        <div className="admin-controls" style={{ textAlign: "right", marginBottom: "20px", display: "flex", justifyContent: "flex-end", gap: "10px" }}>
-          {isAdmin ? (
-            <>
-              <button type="button" className="btn btn-success" onClick={handleAddClick}>
-                ➕ Add Event
-              </button>
-              <button type="button" className="btn btn-danger" onClick={handleLogout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <button type="button" className="btn btn-primary" onClick={() => setShowAdminLogin(true)}>
-              Admin Login
-            </button>
-          )}
-        </div>
-
+      
         {showAdminLogin && (
           <div className="modal-overlay" onClick={() => setShowAdminLogin(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
