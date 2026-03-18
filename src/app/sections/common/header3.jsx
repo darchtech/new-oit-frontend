@@ -229,6 +229,9 @@ function Header3() {
                 <li>
                   <NavLink to="/placement">Placement</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/exam">Exam</NavLink>
+                </li>
                 <li className="nav-cta">
                   <NavLink to="/contact-us" className="enquire-btn">
                     Enquiry Now
@@ -236,7 +239,8 @@ function Header3() {
                 </li>
               </ul>
             </div>
-          </div>z
+          </div>
+          z
         </div>
       </div>
     </header>

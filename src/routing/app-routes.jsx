@@ -56,6 +56,8 @@ import ContactFormPage from "../app/components/contactForm/ContactFormPage";
 import SyllabusDownload from "../app/components/syllabus/SyllabusDownload";
 
 import Events from "../app/components/Events/Events";
+import QuizPage from "../app/quiz/QuizPage";
+import QuizAdmin from "../app/quiz/QuizAdmin";
 
 function AppRoutes() {
   return (
@@ -81,6 +83,9 @@ function AppRoutes() {
       <Route path="/contact-us" element={<ContactUsPage />} />
       <Route path="/careers" element={<Careers />} />
       <Route path="/events" element={<Events />} />
+      <Route path="/exam" element={<QuizPage />} />
+      <Route path="/exam/:quizId" element={<QuizPage />} />
+      <Route path="/admin/quiz" element={<QuizAdmin />} />
       <Route path="/placement" element={<Placement />} />
       <Route path="/sectionOurInfo1" element={<SectionOurInfo1 />} />
       <Route path="/SectionWhyChooseUs1" element={<SectionWhyChooseUs1 />} />

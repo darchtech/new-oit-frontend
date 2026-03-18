@@ -254,6 +254,9 @@ function Header2() {
                 <li>
                   <NavLink to="/events">Events</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/exam">Exam</NavLink>
+                </li>
 
                 <li className="nav-cta">
                   <NavLink to="/contact-us" className="enquire-btn">
