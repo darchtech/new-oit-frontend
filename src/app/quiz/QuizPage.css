@@ -134,12 +134,13 @@
 }
 
 .start-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: linear-gradient(135deg, #ff6a00, #ff8c1a);
   color: white;
   border: none;
-  padding: 15px 50px;
-  font-size: 1.1rem;
-  border-radius: 30px;
+  padding: 12px 35px;
+  font-size: 1rem;
+  border-radius: 25px;
   cursor: pointer;
   transition:
     transform 0.2s,
@@ -155,6 +156,99 @@
 .start-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Tab Warning Popup */
+.tab-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tab-warning-box {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tab-warning-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.tab-warning-box h2 {
+  color: #dc3545;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.tab-warning-box p {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.tab-warning-box strong {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.tab-warning-note {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+  margin-top: 20px;
+}
+
+.warning-ok-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 25px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.warning-ok-btn:hover {
+  transform: scale(1.05);
 }
 
 /* Header */
@@ -311,7 +405,8 @@
 }
 
 .next-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: linear-gradient(135deg, #ff6a00, #ff8c1a);
   color: white;
   border: none;
   padding: 15px 40px;
@@ -347,7 +442,8 @@
 }
 
 .quiz-result-screen h1 {
-  color: #667eea;
+  color: black;
+  
   margin-bottom: 30px;
   font-size: 2rem;
 }

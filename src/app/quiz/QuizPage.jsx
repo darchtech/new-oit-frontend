@@ -20,6 +20,11 @@ const QuizPage = () => {
     location: "",
   });
   const [registrationLoading, setRegistrationLoading] = useState(false);
+  const [existingQuiz, setExistingQuiz] = useState(null); // For resume functionality
+
+  // Tab switching detection
+  const [tabSwitchCount, setTabSwitchCount] = useState(0);
+  const [showTabWarning, setShowTabWarning] = useState(false);
 
   // Quiz state
   const [quiz, setQuiz] = useState(null);
@@ -79,6 +84,28 @@ const QuizPage = () => {
     }));
   };
 
+  // Check if email already registered
+  const checkExistingRegistration = async (email) => {
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/quiz-registration/registrations/${quizIdToUse}`,
+      );
+      const data = await response.json();
+
+      if (response.ok) {
+        const existing = data.registrations.find((reg) => reg.email === email);
+        if (existing) {
+          setExistingQuiz(existing);
+          return existing;
+        }
+      }
+      return null;
+    } catch (error) {
+      console.error("Error checking existing registration:", error);
+      return null;
+    }
+  };
+
   // Register for quiz
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -86,6 +113,24 @@ const QuizPage = () => {
     setError(null);
 
     try {
+      // Check if email already registered
+      const existing = await checkExistingRegistration(registrationData.email);
+
+      if (existing) {
+        if (existing.quizSubmitted) {
+          throw new Error(
+            "You have already completed this quiz. You cannot retake it.",
+          );
+        }
+        // Resume existing quiz
+        setIsRegistered(true);
+        setExistingQuiz(existing);
+        // Load the existing quiz session
+        resumeQuiz(existing);
+        return;
+      }
+
+      // New registration
       const response = await fetch(
         `${API_BASE_URL}/quiz-registration/register`,
         {
@@ -153,6 +198,114 @@ const QuizPage = () => {
       setLoading(false);
     }
   }, [quizIdToUse]);
+
+  // Resume existing quiz
+  const resumeQuiz = async (existingRegistration) => {
+    setLoading(true);
+    setError(null);
+    try {
+      // Fetch the quiz details from backend
+      const response = await fetch(
+        `${API_BASE_URL}/quiz/start-quiz/${quizIdToUse}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to resume quiz");
+      }
+
+      setQuiz(data);
+      setActiveQuizId(data.quiz_id);
+      setCurrentQuestion(data.question);
+      setQuestionNumber(data.questionNumber);
+      setTotalQuestions(data.totalQuestions);
+      setTimeRemaining(Number(data.timeRemaining) || 600);
+      setStartTime(new Date(data.startTime));
+      setQuizStarted(true);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Tab switching detection
+  useEffect(() => {
+    if (!quizStarted || quizSubmitted) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // User switched to another tab
+        setTabSwitchCount((prev) => {
+          const newCount = prev + 1;
+
+          if (newCount === 1) {
+            // First time - show warning
+            setShowTabWarning(true);
+            setTimeout(() => setShowTabWarning(false), 5000);
+          }
+
+          return newCount;
+        });
+
+        // Check if this is the second or more violation
+        if (tabSwitchCount >= 1) {
+          // Second time - auto submit immediately
+          setShowTabWarning(false);
+          // Directly call the submit logic
+          fetch(`${API_BASE_URL}/quiz/submit-quiz/${activeQuizId}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              setResult(data);
+              setQuizSubmitted(true);
+
+              // Save score to registration
+              if (registrationData.email) {
+                fetch(`${API_BASE_URL}/quiz-registration/update-score`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    quizId: quizIdToUse,
+                    email: registrationData.email,
+                    score: data.score,
+                  }),
+                }).catch((err) => console.error("Failed to save score:", err));
+              }
+            })
+            .catch((err) => {
+              console.error("Auto-submit error:", err);
+              setError("Quiz auto-submitted due to tab switching violation");
+              setQuizSubmitted(true);
+            });
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [
+    quizStarted,
+    quizSubmitted,
+    tabSwitchCount,
+    activeQuizId,
+    registrationData.email,
+  ]);
 
   // Submit answer
   const submitAnswerHandler = async () => {
@@ -244,7 +397,7 @@ const QuizPage = () => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              quizId: activeQuizId,
+              quizId: quizIdToUse,
               email: registrationData.email,
               score: data.score,
             }),
@@ -587,6 +740,32 @@ const QuizPage = () => {
   // Render quiz question
   return (
     <div className="quiz-container">
+      {/* Tab Warning Popup */}
+      {showTabWarning && (
+        <div className="tab-warning-overlay">
+          <div className="tab-warning-box">
+            <div className="tab-warning-icon">⚠️</div>
+            <h2>Warning: Tab Switching Detected!</h2>
+            <p>
+              This is your <strong>first warning</strong>.
+            </p>
+            <p>
+              If you switch tabs again, your quiz will be{" "}
+              <strong>automatically submitted</strong>.
+            </p>
+            <p className="tab-warning-note">
+              Please stay on this page until you complete the quiz.
+            </p>
+            <button
+              className="warning-ok-btn"
+              onClick={() => setShowTabWarning(false)}
+            >
+              I Understand
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="quiz-header">
         <div className="quiz-info">
           <span className="question-counter">

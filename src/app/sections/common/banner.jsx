@@ -22,12 +22,12 @@ function Banner({ _data }) {
               </div>
         
               {/* BREADCRUMB */}
-              <ul className="sx-breadcrumb breadcrumb-style-2">
+              {/* <ul className="sx-breadcrumb breadcrumb-style-2">
                 <li>
                   <NavLink to="/index">Home</NavLink>
                 </li>
                 <li>{_data.crumb}</li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
