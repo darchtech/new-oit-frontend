@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import "./QuizPage.css";
 
-// Hardcoded API URL to ensure it works
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const QuizPage = () => {
   const { quizId: urlQuizId } = useParams(); // Get quiz ID from URL params
@@ -88,7 +87,7 @@ const QuizPage = () => {
   const checkExistingRegistration = async (email) => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/quiz-registration/registrations/${quizIdToUse}`,
+        `${API_BASE_URL}/api/quiz-registration/registrations/${quizIdToUse}`,
       );
       const data = await response.json();
 
@@ -132,7 +131,7 @@ const QuizPage = () => {
 
       // New registration
       const response = await fetch(
-        `${API_BASE_URL}/quiz-registration/register`,
+        `${API_BASE_URL}/api/quiz-registration/register`,
         {
           method: "POST",
           headers: {
@@ -167,7 +166,7 @@ const QuizPage = () => {
     setError(null);
     try {
       const response = await fetch(
-        `${API_BASE_URL}/quiz/start-quiz/${quizIdToUse}`,
+        `${API_BASE_URL}/api/quiz/start-quiz/${quizIdToUse}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -206,7 +205,7 @@ const QuizPage = () => {
     try {
       // Fetch the quiz details from backend
       const response = await fetch(
-        `${API_BASE_URL}/quiz/start-quiz/${quizIdToUse}`,
+        `${API_BASE_URL}/api/quiz/start-quiz/${quizIdToUse}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -259,7 +258,7 @@ const QuizPage = () => {
           // Second time - auto submit immediately
           setShowTabWarning(false);
           // Directly call the submit logic
-          fetch(`${API_BASE_URL}/quiz/submit-quiz/${activeQuizId}`, {
+          fetch(`${API_BASE_URL}/api/quiz/submit-quiz/${activeQuizId}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -272,7 +271,7 @@ const QuizPage = () => {
 
               // Save score to registration
               if (registrationData.email) {
-                fetch(`${API_BASE_URL}/quiz-registration/update-score`, {
+                fetch(`${API_BASE_URL}/api/quiz-registration/update-score`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -319,7 +318,7 @@ const QuizPage = () => {
     setError(null);
     try {
       const response = await fetch(
-        `${API_BASE_URL}/quiz/submit-answer/${activeQuizId}`,
+        `${API_BASE_URL}/api/quiz/submit-answer/${activeQuizId}`,
         {
           method: "POST",
           headers: {
@@ -370,7 +369,7 @@ const QuizPage = () => {
     setError(null);
     try {
       const response = await fetch(
-        `${API_BASE_URL}/quiz/submit-quiz/${activeQuizId}`,
+        `${API_BASE_URL}/api/quiz/submit-quiz/${activeQuizId}`,
         {
           method: "POST",
           headers: {
@@ -391,7 +390,7 @@ const QuizPage = () => {
       // Save score to registration
       if (registrationData.email) {
         try {
-          await fetch(`${API_BASE_URL}/quiz-registration/update-score`, {
+          await fetch(`${API_BASE_URL}/api/quiz-registration/update-score`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -419,7 +418,7 @@ const QuizPage = () => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/quiz/time-remaining/${activeQuizId}`,
+        `${API_BASE_URL}/api/quiz/time-remaining/${activeQuizId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -432,7 +431,7 @@ const QuizPage = () => {
       if (data.isTimeExpired && !quizSubmitted) {
         // Time expired, fetch final results
         const resultResponse = await fetch(
-          `${API_BASE_URL}/quiz/submit-quiz/${activeQuizId}`,
+          `${API_BASE_URL}/api/quiz/submit-quiz/${activeQuizId}`,
           {
             method: "POST",
             headers: {
