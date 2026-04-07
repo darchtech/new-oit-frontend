@@ -225,7 +225,7 @@ function Header2() {
                             Cyber Security
                           </NavLink>
                           <NavLink to="/courses/salesforce-testing">
-                            Salesforce Testing
+                            Salesforce Development
                           </NavLink>
                           <NavLink to="/courses/digital-marketing-course">
                             Digital Marketing
