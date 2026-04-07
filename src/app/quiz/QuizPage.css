@@ -16,6 +16,37 @@
   -webkit-touch-callout: none !important;
 }
 
+/* No Capture - Anti Screenshot Protection */
+.quiz-no-capture {
+  -webkit-user-drag: none !important;
+  pointer-events: auto !important;
+}
+
+.quiz-no-capture * {
+  -webkit-user-drag: none !important;
+  pointer-events: auto !important;
+}
+
+/* Block screenshot CSS techniques */
+.quiz-container {
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Prevent browser screenshot overlay */
+.quiz-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  z-index: 3;
+  opacity: 0;
+}
+
 /* Start Screen */
 .quiz-start-screen {
   max-width: 600px;
@@ -361,6 +392,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  position: relative;
+  z-index: 20;
 }
 
 .option-item {
@@ -370,13 +403,19 @@
   background: #f8f9fa;
   border: 2px solid #e9ecef;
   border-radius: 12px;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.2s;
+  position: relative;
+  z-index: 20;
 }
 
 .option-item:hover {
   background: #e9ecef;
   border-color: #667eea;
+}
+
+.option-item:hover * {
+  cursor: pointer !important;
 }
 
 .option-item.selected {
@@ -388,12 +427,14 @@
 .option-marker {
   font-size: 1.2rem;
   margin-right: 15px;
+  pointer-events: none;
 }
 
 .option-text {
   font-size: 1rem;
   color: #333;
   flex: 1;
+  pointer-events: none;
 }
 
 /* Footer */
@@ -443,7 +484,7 @@
 
 .quiz-result-screen h1 {
   color: black;
-  
+
   margin-bottom: 30px;
   font-size: 2rem;
 }
@@ -630,4 +671,290 @@
   .score {
     font-size: 3rem;
   }
+}
+
+/* ========================================
+   SCREENSHOT WARNING POPUP STYLES
+   ======================================== */
+.screenshot-warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease;
+}
+
+.screenshot-warning-box {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(220, 53, 69, 0.4);
+  animation: slideDown 0.3s ease;
+  border: 3px solid #dc3545;
+}
+
+.screenshot-warning-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.screenshot-warning-box h2 {
+  color: #dc3545;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.screenshot-warning-box p {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.screenshot-warning-box strong {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.screenshot-warning-note {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #dc3545;
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   WATERMARK OVERLAY STYLES
+   ======================================== */
+.quiz-watermark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none !important;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.04;
+}
+
+.watermark-text {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+  white-space: nowrap;
+  transform: rotate(-25deg);
+  pointer-events: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  text-shadow: none;
+  letter-spacing: 1px;
+}
+
+/* Distribute watermarks across the screen */
+.watermark-text:nth-child(1) {
+  top: 5%;
+  left: 5%;
+}
+.watermark-text:nth-child(2) {
+  top: 10%;
+  left: 15%;
+}
+.watermark-text:nth-child(3) {
+  top: 15%;
+  left: 25%;
+}
+.watermark-text:nth-child(4) {
+  top: 20%;
+  left: 35%;
+}
+.watermark-text:nth-child(5) {
+  top: 25%;
+  left: 45%;
+}
+.watermark-text:nth-child(6) {
+  top: 30%;
+  left: 55%;
+}
+.watermark-text:nth-child(7) {
+  top: 35%;
+  left: 65%;
+}
+.watermark-text:nth-child(8) {
+  top: 40%;
+  left: 75%;
+}
+.watermark-text:nth-child(9) {
+  top: 45%;
+  left: 85%;
+}
+.watermark-text:nth-child(10) {
+  top: 50%;
+  left: 5%;
+}
+.watermark-text:nth-child(11) {
+  top: 55%;
+  left: 15%;
+}
+.watermark-text:nth-child(12) {
+  top: 60%;
+  left: 25%;
+}
+.watermark-text:nth-child(13) {
+  top: 65%;
+  left: 35%;
+}
+.watermark-text:nth-child(14) {
+  top: 70%;
+  left: 45%;
+}
+.watermark-text:nth-child(15) {
+  top: 75%;
+  left: 55%;
+}
+.watermark-text:nth-child(16) {
+  top: 80%;
+  left: 65%;
+}
+.watermark-text:nth-child(17) {
+  top: 85%;
+  left: 75%;
+}
+.watermark-text:nth-child(18) {
+  top: 90%;
+  left: 85%;
+}
+.watermark-text:nth-child(19) {
+  top: 50%;
+  left: 50%;
+  transform: rotate(-30deg) scale(1.5);
+  opacity: 0.12;
+}
+.watermark-text:nth-child(20) {
+  top: 25%;
+  left: 50%;
+  transform: rotate(-30deg) scale(1.2);
+}
+
+/* ========================================
+   ANTI-SCREENSHOT ENHANCEMENTS
+   ======================================== */
+/* Secure Mode - Maximum protection */
+.quiz-secure-mode {
+  -webkit-app-region: no-drag;
+  content-visibility: visible;
+}
+
+.quiz-secure-mode body {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  pointer-events: auto !important;
+}
+
+/* Prevent window from being captured cleanly */
+.quiz-secure-mode * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Block print media - prevents printing to PDF */
+@media print {
+  .quiz-container,
+  .quiz-container * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Block browser screenshot extensions */
+.quiz-container {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Make content invisible to screen capture APIs where supported */
+.quiz-no-capture {
+  content-visibility: auto;
+  contain: layout style paint;
+}
+
+/* Prevent flash of content when screenshot is taken */
+.quiz-body,
+.question-card,
+.options-list {
+  background-clip: padding-box;
+}
+
+/* Add dynamic gradient overlay that makes screenshots unclear */
+.quiz-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.02) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 4px 4px;
+  pointer-events: none !important;
+  z-index: 9999;
+  opacity: 0.3;
+}
+
+/* Prevent hardware acceleration bypass */
+.quiz-header,
+.quiz-body,
+.quiz-footer {
+  will-change: auto;
+  transform-style: flat;
+}
+
+/* Block screen recording where possible */
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.98;
+  }
+}
+
+.quiz-container {
+  animation: flicker 0.1s infinite;
+}
+
+/* Prevent black screen recording attempts */
+.question-text,
+.option-text {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

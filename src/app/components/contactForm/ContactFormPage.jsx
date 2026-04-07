@@ -208,14 +208,6 @@
 
 // export default ContactFormPage;
 
-
-
-
-
-
-
-
-
 import axios from "axios";
 import { useState } from "react";
 import "./ContactFormPage.css";
@@ -225,28 +217,22 @@ const DOMAIN = process.env.REACT_APP_DOMAIN;
 
 // 🔹 Course → PDF map
 const coursePdfMap = {
-   // your file
-  "Mern Stack": "/assets/pdfs/MERN-Stack.pdf",
-  "Java FullStack": "/assets/pdfs/JavaFullStack.pdf",
-  "PHP FullStack": "/assets/pdfs/phpFullstack.pdf",
-  "Python FullStack": "/assets/pdfs/pythonFullstack.pdf",
-
-  "Mean Stack": "/assets/pdfs/MEANStack.pdf",
- 
-  "Cyber Security": "/assets/pdfs/cyber-security.pdf",
- 
-
-  "Flutter": "/assets/pdfs/flutter.pdf",
-  "Sales Force Development": "/assets/pdfs/Salesforce.pdf",
-  "Angular Development":"/assets/pdfs/Angular.pdf",
-  "React JS Development":"/assets/pdfs/reactJS.pdf",
-  "Android App Development":"/assets/pdfs/android.pdf",
-  "C Programming":"/assets/pdfs/C.pdf",
-  "Core Java":"/assets/pdfs/Core-Java.pdf",
-  "DSA":"/assets/pdfs/DSA.pdf",
-  "RDBMS":"/assets/pdfs/RDBMSc.pdf",
-  "Devops":"/assets/pdfs/Devops.pdf",
-  
+  "Mern Stack": "/assets/pdfs/MERN stack  Booklet (1).pdf",
+  "Java FullStack": "/assets/pdfs/Java fullstack Booklet.pdf",
+  "PHP FullStack": "/assets/pdfs/Php fullstack course Booklet.pdf",
+  "Python FullStack": "/assets/pdfs/Python fullstack course Booklet.pdf",
+  "Mean Stack": "/assets/pdfs/Mean stack course Booklet.pdf",
+  "Cyber Security": "/assets/pdfs/Cyber security Booklet.pdf",
+  Flutter: "/assets/pdfs/Flutter fullstack Booklet.pdf",
+  "Sales Force Development": "/assets/pdfs/Salesforce course Booklet.pdf",
+  "Angular Development": "/assets/pdfs/Angular js booklet.pdf",
+  "React JS Development": "/assets/pdfs/React js booklet.pdf",
+  "Android App Development": "/assets/pdfs/Android development Booklet.pdf",
+  "C Programming": "/assets/pdfs/C Programming Booklet.pdf",
+  "Core Java": "/assets/pdfs/Core Java Booklet.pdf",
+  DSA: "/assets/pdfs/DSA course Booklet.pdf",
+  Devops: "/assets/pdfs/DevOps course Booklet.pdf",
+  "UI UX Developer": "/assets/pdfs/UIUX development Booklet.pdf",
 };
 
 function ContactFormPage() {
@@ -312,7 +298,7 @@ function ContactFormPage() {
       });
     } catch (error) {
       setErrorMsg(
-        error.response?.data?.message || "Failed to submit enquiry ❌"
+        error.response?.data?.message || "Failed to submit enquiry ❌",
       );
     } finally {
       setLoading(false);
@@ -337,9 +323,14 @@ function ContactFormPage() {
           {/* RIGHT PANEL */}
           <div className="col-md-9 right-panel">
             <h2>Contact Us</h2>
-            <p>Tell us your goals — we'll guide you within <strong>24 hours</strong></p>
+            <p>
+              Tell us your goals — we'll guide you within{" "}
+              <strong>24 hours</strong>
+            </p>
 
-            {successMsg && <div className="alert alert-success">{successMsg}</div>}
+            {successMsg && (
+              <div className="alert alert-success">{successMsg}</div>
+            )}
             {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
 
             <form className="row g-3" onSubmit={handleSubmit}>
@@ -413,13 +404,17 @@ function ContactFormPage() {
                   onChange={handleChange}
                   className="form-control"
                   rows="5"
-                  placeholder="Your Message"
-                  required
+                  placeholder="Your Message (optional)"
+                  
                 />
               </div>
 
               <div className="col-md-12">
-                <button className="btn send-btn" type="submit" disabled={loading}>
+                <button
+                  className="btn send-btn"
+                  type="submit"
+                  disabled={loading}
+                >
                   {loading ? "Sending..." : "Send Message"}
                 </button>
               </div>

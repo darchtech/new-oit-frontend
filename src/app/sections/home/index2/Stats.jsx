@@ -5,14 +5,14 @@ import { FaUserGraduate, FaStar, FaBuilding, FaAward } from "react-icons/fa";
 const statsData = [
   {
     icon: <FaUserGraduate />,
-    value: 10000,
+    value: 60000,
     suffix: "+",
     title: "Students Trained",
     subtitle: "Successfully completed courses",
   },
   {
     icon: <FaStar />,
-    value: 6000,
+    value: 10000,
     suffix: "+",
     title: "Student Placed",
     // subtitle: "4.5 Star Rating",

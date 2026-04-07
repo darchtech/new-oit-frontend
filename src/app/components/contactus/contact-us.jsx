@@ -1016,17 +1016,17 @@ function ContactUsPage() {
                       required
                     >
                       <option value="">Select Course</option>
-                      <option>C Programming</option>
+                      {/* <option>C Programming</option>
                       <option>Core Java</option>
                       <option>Advance Java </option>
                       <option>DSA</option>
-                      <option>RDBMS</option>
+                      <option>RDBMS</option> */}
                       <option>Java Full Stack Development</option>
                       <option>Mern Stack</option>
                       <option>Java FullStack</option>
                       <option>PHP FullStack</option>
                       <option>Python FullStack</option>
-                      <option>.Net FullStack</option>
+                      <option>.Net Developer</option>
                       <option>Mean Stack</option>
                       <option>Data Science & AI</option>
                       <option>DevOps</option>
@@ -1048,8 +1048,8 @@ function ContactUsPage() {
                       onChange={handleChange}
                       rows="6"
                       className="form-control"
-                      placeholder="Your Message"
-                      required
+                      placeholder="Your Message (optional)"
+                     
                     ></textarea>
                   </div>
 

@@ -73,28 +73,30 @@ const Careers = () => {
                 <h2>{job.title}</h2>
               </div>
 
-              <p className="Neligibility">{job.eligibility}</p>
+              <div className="Ncard-body">
+                <p className="Neligibility">{job.eligibility}</p>
 
-              {job.requirements?.map((r, i) => (
-                <div key={i} className="Nreq">
-                  <FiCheck /> {r}
-                </div>
-              ))}
+                {job.requirements?.map((r, i) => (
+                  <div key={i} className="Nreq">
+                    <FiCheck /> {r}
+                  </div>
+                ))}
 
-              {job.company && (
-                <div className="Nreq">
-                  <FaBuilding /> {job.company}
-                </div>
-              )}
+                {job.company && (
+                  <div className="Nreq">
+                    <FaBuilding /> {job.company}
+                  </div>
+                )}
 
-              {(job.salary || job.stipend) && (
-                <div className="Nreq">
-                  <FaMoneyBillWave /> {job.salary || job.stipend}
-                </div>
-              )}
+                {(job.salary || job.stipend) && (
+                  <div className="Nreq">
+                    <FaMoneyBillWave /> {job.salary || job.stipend}
+                  </div>
+                )}
+              </div>
 
               {job.isHiring && (
-                <div className="Napply-btn-container mt-4 mb-3">
+                <div className="Napply-btn-container">
                   <button
                     className="Napply-btn"
                     onClick={() => setSelectedJob(job)}

@@ -190,6 +190,7 @@ const QuizPage = () => {
       setStartTime(new Date(data.startTime));
       setQuizStarted(true);
       console.log("Time remaining set to:", data.timeRemaining); // Debug log
+      window.scrollTo(0, 0); // Scroll to top when quiz starts
     } catch (err) {
       setError(err.message);
       console.error("Start quiz error:", err); // Debug log
@@ -227,6 +228,7 @@ const QuizPage = () => {
       setTimeRemaining(Number(data.timeRemaining) || 600);
       setStartTime(new Date(data.startTime));
       setQuizStarted(true);
+      window.scrollTo(0, 0); // Scroll to top when quiz resumes
     } catch (err) {
       setError(err.message);
     } finally {
@@ -234,13 +236,12 @@ const QuizPage = () => {
     }
   };
 
-  // Tab switching detection
+  // Tab switching detection - Warning on 1st, Auto-submit on 2nd
   useEffect(() => {
     if (!quizStarted || quizSubmitted) return;
 
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        // User switched to another tab
         setTabSwitchCount((prev) => {
           const newCount = prev + 1;
 
@@ -248,63 +249,147 @@ const QuizPage = () => {
             // First time - show warning
             setShowTabWarning(true);
             setTimeout(() => setShowTabWarning(false), 5000);
+          } else if (newCount >= 2) {
+            // Second time - auto submit immediately
+            setShowTabWarning(false);
+            fetch(`${API_BASE_URL}/api/quiz/submit-quiz/${activeQuizId}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                setResult(data);
+                setQuizSubmitted(true);
+
+                // Save score to registration
+                if (registrationData.email) {
+                  fetch(`${API_BASE_URL}/api/quiz-registration/update-score`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      quizId: quizIdToUse,
+                      email: registrationData.email,
+                      score: data.score,
+                    }),
+                  }).catch((err) =>
+                    console.error("Failed to save score:", err),
+                  );
+                }
+              })
+              .catch((err) => {
+                console.error("Auto-submit error:", err);
+                setError("Quiz auto-submitted due to tab switching violation");
+                setQuizSubmitted(true);
+              });
           }
 
           return newCount;
         });
-
-        // Check if this is the second or more violation
-        if (tabSwitchCount >= 1) {
-          // Second time - auto submit immediately
-          setShowTabWarning(false);
-          // Directly call the submit logic
-          fetch(`${API_BASE_URL}/api/quiz/submit-quiz/${activeQuizId}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              setResult(data);
-              setQuizSubmitted(true);
-
-              // Save score to registration
-              if (registrationData.email) {
-                fetch(`${API_BASE_URL}/api/quiz-registration/update-score`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    quizId: quizIdToUse,
-                    email: registrationData.email,
-                    score: data.score,
-                  }),
-                }).catch((err) => console.error("Failed to save score:", err));
-              }
-            })
-            .catch((err) => {
-              console.error("Auto-submit error:", err);
-              setError("Quiz auto-submitted due to tab switching violation");
-              setQuizSubmitted(true);
-            });
-        }
       }
     };
 
+    // Also detect window blur (screenshot tool or other app)
+    const handleBlur = () => {
+      setTimeout(() => {
+        if (!document.hidden && quizStarted && !quizSubmitted) {
+          setTabSwitchCount((prev) => {
+            const newCount = prev + 1;
+
+            if (newCount === 1) {
+              // First time - show warning
+              setShowTabWarning(true);
+              setTimeout(() => setShowTabWarning(false), 5000);
+            } else if (newCount >= 2) {
+              // Second time - auto submit
+              setShowTabWarning(false);
+              fetch(`${API_BASE_URL}/api/quiz/submit-quiz/${activeQuizId}`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  setResult(data);
+                  setQuizSubmitted(true);
+
+                  if (registrationData.email) {
+                    fetch(
+                      `${API_BASE_URL}/api/quiz-registration/update-score`,
+                      {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                          quizId: quizIdToUse,
+                          email: registrationData.email,
+                          score: data.score,
+                        }),
+                      },
+                    ).catch((err) =>
+                      console.error("Failed to save score:", err),
+                    );
+                  }
+                })
+                .catch((err) => {
+                  console.error("Auto-submit error:", err);
+                  setError("Quiz auto-submitted");
+                  setQuizSubmitted(true);
+                });
+            }
+
+            return newCount;
+          });
+        }
+      }, 200);
+    };
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("blur", handleBlur);
 
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("blur", handleBlur);
     };
   }, [
     quizStarted,
     quizSubmitted,
-    tabSwitchCount,
     activeQuizId,
     registrationData.email,
+    quizIdToUse,
   ]);
+
+  // Request fullscreen when quiz starts - makes it harder to switch apps
+  useEffect(() => {
+    if (!quizStarted || quizSubmitted) return;
+
+    const requestFullscreen = () => {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(() => {});
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen().catch(() => {});
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen().catch(() => {});
+      }
+    };
+
+    // Request fullscreen after a short delay
+    const timeoutId = setTimeout(requestFullscreen, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      // Exit fullscreen when quiz ends
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+    };
+  }, [quizStarted, quizSubmitted]);
 
   // Submit answer
   const submitAnswerHandler = async () => {
@@ -346,6 +431,7 @@ const QuizPage = () => {
         setCurrentQuestion(data.nextQuestion);
         setQuestionNumber(data.questionNumber);
         setTimeRemaining(data.timeRemaining);
+        window.scrollTo(0, 0); // Scroll to top when moving to next question
       }
 
       setSelectedAnswer(null);
@@ -471,7 +557,7 @@ const QuizPage = () => {
     };
   }, [quizStarted, quizSubmitted, timeRemaining]);
 
-  // Prevent text selection, right-click, and keyboard shortcuts
+  // Prevent text selection, right-click, keyboard shortcuts, and screenshots
   useEffect(() => {
     if (!quizStarted || quizSubmitted) return;
 
@@ -481,38 +567,87 @@ const QuizPage = () => {
     };
 
     const preventKeyDown = (e) => {
-      // Prevent Ctrl+C, Ctrl+X, Ctrl+P, Ctrl+S
-      if (e.ctrlKey && ["c", "x", "p", "s"].includes(e.key.toLowerCase())) {
+      // Prevent ALL Ctrl combinations except minimal essential ones
+      if (e.ctrlKey) {
         e.preventDefault();
         return false;
       }
-      // Prevent F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      // Prevent F1-F12 function keys
+      if (e.key.startsWith("F") && e.key.length >= 2) {
+        e.preventDefault();
+        return false;
+      }
+      // BLOCK PRINT SCREEN AND ALL SCREENSHOT SHORTCUTS
       if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["i", "j"].includes(e.key.toLowerCase())) ||
-        (e.ctrlKey && e.key.toLowerCase() === "u")
+        e.key === "PrintScreen" ||
+        e.key === "PrtSc" ||
+        e.key === "PrtScn" ||
+        e.key === "Snapshot" ||
+        (e.altKey && e.key === "PrintScreen") ||
+        (e.ctrlKey && e.key === "PrintScreen") ||
+        (e.winKey && e.key === "PrintScreen") ||
+        (e.altKey && e.key === "Tab") ||
+        (e.ctrlKey && e.altKey && e.key === "Delete")
       ) {
+        e.preventDefault();
+        // Silently block - no warning shown
+        return false;
+      }
+      // Block Windows key
+      if (e.key === "Meta" || e.key === "OS") {
         e.preventDefault();
         return false;
       }
     };
 
-    document.addEventListener("contextmenu", preventCopy);
-    document.addEventListener("selectstart", preventCopy);
+    // Block context menu
+    const preventContextMenu = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    // Block selection
+    const preventSelection = (e) => {
+      e.preventDefault();
+      return false;
+    };
+
+    // Clear clipboard on focus loss
+    const handleBlur = () => {
+      // Silently clear clipboard when window loses focus
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText("").catch(() => {});
+      }
+    };
+
+    document.addEventListener("contextmenu", preventContextMenu);
+    document.addEventListener("selectstart", preventSelection);
     document.addEventListener("copy", preventCopy);
     document.addEventListener("cut", preventCopy);
+    document.addEventListener("paste", preventCopy);
     document.addEventListener("keydown", preventKeyDown);
+    window.addEventListener("blur", handleBlur);
 
-    // Add no-select class to body
-    document.body.classList.add("quiz-no-select");
+    // Add security classes to body
+    document.body.classList.add(
+      "quiz-no-select",
+      "quiz-no-capture",
+      "quiz-secure-mode",
+    );
 
     return () => {
-      document.removeEventListener("contextmenu", preventCopy);
-      document.removeEventListener("selectstart", preventCopy);
+      document.removeEventListener("contextmenu", preventContextMenu);
+      document.removeEventListener("selectstart", preventSelection);
       document.removeEventListener("copy", preventCopy);
       document.removeEventListener("cut", preventCopy);
+      document.removeEventListener("paste", preventCopy);
       document.removeEventListener("keydown", preventKeyDown);
-      document.body.classList.remove("quiz-no-select");
+      window.removeEventListener("blur", handleBlur);
+      document.body.classList.remove(
+        "quiz-no-select",
+        "quiz-no-capture",
+        "quiz-secure-mode",
+      );
     };
   }, [quizStarted, quizSubmitted]);
 
@@ -765,6 +900,17 @@ const QuizPage = () => {
         </div>
       )}
 
+      {/* Dynamic Watermark Overlay - Generic security watermark */}
+      {quizStarted && !quizSubmitted && (
+        <div className="quiz-watermark-overlay">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div key={i} className="watermark-text">
+              SECURE QUIZ - {new Date().toLocaleDateString()}
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className="quiz-header">
         <div className="quiz-info">
           <span className="question-counter">
@@ -790,20 +936,37 @@ const QuizPage = () => {
           <h2 className="question-text">{currentQuestion?.statement}</h2>
 
           <div className="options-list">
-            {currentQuestion?.options.map((option, index) => (
-              <div
-                key={index}
-                className={`option-item ${
-                  selectedAnswer === option ? "selected" : ""
-                }`}
-                onClick={() => handleOptionSelect(option)}
-              >
-                <span className="option-marker">
-                  {selectedAnswer === option ? "🔘" : "⚪"}
-                </span>
-                <span className="option-text">{option}</span>
-              </div>
-            ))}
+            {currentQuestion?.options.map((option, index) => {
+              // Get the option value for comparison (handle both string and object options)
+              const optionValue =
+                typeof option === "object"
+                  ? option.option || option.text || option._id
+                  : option;
+              const isSelected =
+                selectedAnswer === optionValue ||
+                (typeof selectedAnswer === "object" &&
+                  selectedAnswer !== null &&
+                  (selectedAnswer.option ||
+                    selectedAnswer.text ||
+                    selectedAnswer._id) === optionValue);
+
+              return (
+                <div
+                  key={index}
+                  className={`option-item ${isSelected ? "selected" : ""}`}
+                  onClick={() => handleOptionSelect(optionValue)}
+                >
+                  <span className="option-marker">
+                    {isSelected ? "🔘" : "⚪"}
+                  </span>
+                  <span className="option-text">
+                    {typeof option === "object"
+                      ? option.text || option.option
+                      : option}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

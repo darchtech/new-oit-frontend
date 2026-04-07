@@ -499,10 +499,6 @@ export default function JavaFullStackPage() {
                 className="btn-primary"
                 style={{ textDecoration: "none", cursor: "pointer" }}
                 onClick={() => {
-                  const courseName = "Data Science & AI";
-                  const message = `Hi, I want to download the ${courseName} syllabus. Please share the details.`;
-                  const whatsappUrl = `https://wa.me/919623922545?text=${encodeURIComponent(message)}`;
-                  window.open(whatsappUrl, "_blank");
                   window.location.href = "/contact-form";
                 }}
               >

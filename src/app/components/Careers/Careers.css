@@ -5,7 +5,7 @@
   min-height: 100vh;
   background: #f3f4ff;
   padding: 50px 15px;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .Ncontainer {
@@ -33,12 +33,12 @@
 .Njob-card {
   background: #ffffff;
   border-radius: 6px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-height: 420px;
+  min-height: 480px;
 }
 
 /* ================= RIBBON ================= */
@@ -52,7 +52,7 @@
   padding: 8px 35px;
   transform: rotate(45deg) translate(25px, -15px);
   font-size: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   z-index: 5;
 }
 
@@ -72,12 +72,19 @@
   margin: 0;
 }
 
+/* ================= CARD BODY ================= */
+.Ncard-body {
+  flex: 1 0 auto;
+  min-height: 220px;
+}
+
 /* ================= CONTENT ================= */
 .Neligibility {
   padding: 12px 16px 6px;
   font-size: 13px;
   color: #444;
   line-height: 1.5;
+  flex-shrink: 0;
 }
 
 .Nreq {
@@ -87,6 +94,7 @@
   font-size: 13px;
   color: #444;
   border-top: 1px solid #eee;
+  flex-shrink: 0;
 }
 
 /* ================= LOCATION & SALARY ================= */
@@ -97,9 +105,11 @@
 
 /* ================= APPLY BUTTON ================= */
 .Napply-btn-container {
-  margin: 18px 0;
+  margin-top: auto;
+  margin-bottom: 12px;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .Napply-btn {
@@ -141,8 +151,6 @@
   }
 }
 
-
-
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -154,7 +162,7 @@
 
 .loader {
   border: 6px solid #f3f3f3;
-  border-top: 6px solid #FFB400; /* Orange color */
+  border-top: 6px solid #ffb400; /* Orange color */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -162,6 +170,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
