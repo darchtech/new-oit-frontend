@@ -383,6 +383,67 @@ body {
   }
 }
 
+/* =====================================================
+   BRANCHES DROPDOWN — DESKTOP
+===================================================== */
+@media (min-width: 993px) {
+  .header-nav .sub-menu.branches-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    gap: 20px;
+    border-radius: 6px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    min-width: 200px;
+    max-width: 95vw;
+    z-index: 999;
+  }
+
+  .header-nav .sub-menu.branches-dropdown > li {
+    min-width: 160px;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column a {
+    font-size: 14.5px;
+    padding: 8px 0;
+    color: #333;
+    white-space: normal;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column a:hover {
+    color: #ff6a00;
+  }
+}
+
+/* =====================================================
+   BRANCHES DROPDOWN — MOBILE ACCORDION
+===================================================== */
+@media (max-width: 992px) {
+  .header-nav .sub-menu.branches-dropdown {
+    position: static;
+    background: #f9f9f9;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 6px;
+  }
+
+  .header-nav .sub-menu.branches-dropdown > li {
+    margin-bottom: 10px;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column a {
+    font-size: 14px;
+    padding: 8px 0;
+    display: block;
+    color: #333;
+  }
+}
+
 .header-nav::before {
   z-index: 999; /* overlay below menu */
 }

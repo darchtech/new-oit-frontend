@@ -8,11 +8,12 @@ import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 
 import {
-  FaTools,
-  FaCloud,
-  FaCodeBranch,
-  FaDatabase,
+  FaChartLine,
   FaRobot,
+  FaBrain,
+  FaChartBar,
+  FaDatabase,
+  FaPython,
   FaUserGraduate,
   FaBriefcase,
   FaCode,
@@ -47,35 +48,139 @@ import { useState } from "react";
 import SocialButtons from "./SocialButtons";
 import FloatingSocialButtons from "../FloatingSocialButtons";
 
-export default function JavaFullStackPage() {
+export default function DataAnalystPage() {
   const modules = [
     {
-      title: "DevOps",
+      title: "Frontend Development",
       children: [
         {
-          title: "1. Introduction to DevOps",
+          title: "1. HTML Syllabus",
           topics: [
-            "Version Control - GIT",
-            "Build Tool (Maven)",
-            "Artifactory (Nexus)",
-            "Understanding CI/CD (Jenkins)",
-            "Understanding Containerization (Docker)",
-            "Understanding Container Orchestration (Kubernetes)",
-            "Understanding Cloud Platforms (AWS, Azure)",
-            "Understanding Infrastructure as Code (IAC) (Terraform)",
-            "Configuration Management Tool (Ansible)",
-            "Monitoring Tool (Prometheus and Grafana)",
-            "Learning Miscellaneous Tools: Chef and Puppet",
+            "Introduction to HTML",
+            "HTML Tags and Elements",
+            "HTML – Attributes",
+            "HTML – Formatting",
+            "HTML – Phrase Tags",
+            "HTML – Metatags",
+            "HTML – Comments",
+            "HTML – Image tags",
+            "HTML Tables",
+            "HTML – Lists",
+            "HTML – Iframes",
+            "HTML – Blocks",
+            "HTML – Backgrounds",
+            "HTML – Colors, Fonts",
+          ],
+        },
+        {
+          title: "2. HTML5 Syllabus",
+          topics: [
+            "Understanding Web Concepts & Terminologies",
+            "HTML – Forms",
+            "New Features in HTML5",
+            "HTML Content / Media Tags",
+            "HTML5 Semantic Tags",
+            "Media Queries",
+            "Project-1: Static Website",
+          ],
+        },
+        {
+          title: "3. CSS Syllabus",
+          topics: [
+            "Introduction with CSS",
+            "The STYLE Element",
+            "Measurement Units",
+            "Colors, Backgrounds",
+            "Fonts, texts, images",
+            "Tables",
+            "Borders",
+            "Margins",
+            "Paddings",
+          ],
+        },
+        {
+          title: "4. CSS3 Syllabus",
+          topics: [
+            "Introduction with CSS3",
+            "Rounded Corners",
+            "Border Image",
+            "Shadow",
+            "2D Transforms",
+            "3D Transforms",
+            "Animation",
+            "User Interface",
+          ],
+        },
+        {
+          title: "5. BOOTSTRAP 4 Syllabus",
+          topics: [
+            "Installation Of Bootstrap 4",
+            "Bootstrap Forms",
+            "Bootstrap Containers",
+            "Bootstrap Colors",
+            "Bootstrap Buttons",
+            "Bootstrap Cards",
+            "Bootstrap Dropdowns",
+            "Bootstrap Navbar",
+            "Bootstrap Carousel",
+            "Bootstrap Components",
+            "Bootstrap Grid System",
+            "Responsive Website Development",
+          ],
+        },
+        {
+          title: "6. JavaScript Syllabus",
+          topics: [
+            "Variables, Operators",
+            "Control Structures",
+            "Functions",
+            "Events",
+            "Dynamic Programming",
+            "Strings Object And Arrays Object",
+            "Date Object And RegExp Object",
+            "Math Object",
+            "JavaScript – Document Object Model (DOM)",
           ],
         },
       ],
     },
-
     {
-      title: "SQL",
+      title: "Data Science",
       children: [
         {
-          title: "1. SQL",
+          title: "1. Data Science Essentials",
+          topics: [
+            "Introduction to Data Science",
+            "Python for Data Science",
+            "Data Manipulation & Visualization with Python",
+            "Exploratory Data Analysis (EDA)",
+            "Statistics for Data Science",
+            "Advanced Machine Learning Techniques",
+            "Supervised Learning Models",
+            "Unsupervised Learning Models",
+            "Deep Learning & Neural Networks",
+            "Time Series Analysis and Ensemble Learning",
+            "SQL and Data Storage",
+            "Data Visualization and Reporting Tools",
+            "4 Projects",
+          ],
+        },
+        {
+          title: "2. Version Control System",
+          topics: [
+            "Introduction to Version Control",
+            "Getting Started with Git",
+            "Git Workflow",
+            "Branching in Git",
+            "Merging and Resolving Conflicts",
+            "Working with GitHub",
+            "Collaboration Workflows",
+            "Advanced Git Commands and Techniques",
+            "Best Practices for Git and GitHub",
+          ],
+        },
+        {
+          title: "3. SQL",
           topics: [
             "MySQL Server Installation & Setup",
             "Introduction to Basic Database Concepts",
@@ -92,7 +197,145 @@ export default function JavaFullStackPage() {
         },
       ],
     },
-
+    {
+      title: "DSA",
+      children: [
+        {
+          title: "1. Introduction to DSA",
+          topics: [
+            "Overview of Data Structures and Algorithms",
+            "Time Complexity and Space Complexity",
+            "Big-O, Omega (Ω), and Theta (Θ) Notations",
+            "Asymptotic Analysis",
+            "Types of Algorithms: Brute Force, Divide and Conquer, Greedy, Dynamic Programming",
+          ],
+        },
+        {
+          title: "2. Arrays",
+          topics: [
+            "Introduction to Arrays",
+            "Types of Arrays: Static and Dynamic",
+            "Operations on Arrays: Insertion, Deletion, Traversal, Searching",
+            "Array Representation in Memory",
+            "Multi-dimensional Arrays",
+            "Array Algorithms: Linear Search, Binary Search",
+            "Sorting Algorithms: Bubble Sort, Insertion Sort, Selection Sort",
+          ],
+        },
+        {
+          title: "3. Linked Lists",
+          topics: [
+            "Introduction to Linked Lists",
+            "Types: Singly, Doubly, and Circular Linked Lists",
+            "Operations: Insertion, Deletion, Traversal",
+            "Reverse a Linked List",
+            "Detecting Cycles (Floyd’s Cycle Detection)",
+            "Sorting Linked Lists (e.g., Merge Sort)",
+          ],
+        },
+        {
+          title: "4. Stacks",
+          topics: [
+            "Introduction to Stacks (LIFO Principle)",
+            "Stack Operations: Push, Pop, Peek",
+            "Applications: Expression Evaluation (Infix, Postfix, Prefix Conversion)",
+            "Implementing Stack using Arrays and Linked Lists",
+            "Problem Solving: Balanced Parentheses Check",
+          ],
+        },
+        {
+          title: "5. Queues",
+          topics: [
+            "Introduction to Queues (FIFO Principle)",
+            "Types: Simple Queue, Circular Queue, Priority Queue, Deque (Double-ended Queue)",
+            "Queue Operations: Enqueue, Dequeue, Peek",
+            "Applications: CPU Job Scheduling, BFS in Graphs",
+            "Implementing Queue using Arrays and Linked Lists",
+          ],
+        },
+        {
+          title: "6. Recursion",
+          topics: [
+            "Recursion: Definition, Base Case, and Recursive Call",
+            "Call Stack and Recursion Flow",
+            "Solving Problems Using Recursion: Factorial, Fibonacci, Tower of Hanoi",
+            "Recursion vs Iteration",
+            "Common Pitfalls: Stack Overflow, Redundant Calculations",
+          ],
+        },
+        {
+          title: "7. Sorting Algorithms",
+          topics: [
+            "Basic Sorting: Bubble Sort, Selection Sort, Insertion Sort",
+            "Efficient Sorting: Merge Sort, Quick Sort, Heap Sort",
+            "Comparison of Sorting Algorithms (Time & Space Complexity, Stability, Use Cases)",
+            "Non-Comparison Sorting: Radix Sort, Counting Sort",
+            "When to Use Which Sorting Algorithm?",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Industry Tools",
+      children: [
+        {
+          title: "1. Postman API Testing Tool",
+          topics: [
+            "Introduction to API Testing and RESTful Services",
+            "Sending API Requests: GET, POST, PUT, DELETE",
+            "Inspecting Responses: Status Codes, Headers, Body (JSON/XML)",
+            "Setting Up Authorization: Bearer Token, API Keys, Basic Auth",
+            "Environment & Global Variables for Dynamic Testing",
+            "Automating API Tests with Collections and Scripts",
+            "Generating Documentation from APIs",
+          ],
+        },
+        {
+          title: "2. Git Version Control System",
+          topics: [
+            "Introduction to Version Control and Collaboration Workflow",
+            "Basic Git Commands: git init, add, commit, status, log",
+            "Remote Repositories: git clone, push, pull, fetch",
+            "Branching Strategy: Creating, Switching, and Merging Branches",
+            "Resolving Merge Conflicts",
+            "Git Best Practices for Team Development",
+          ],
+        },
+        {
+          title: "3. GitHub Cloud-based Repository",
+          topics: [
+            "Hosting and Managing Git Repositories Remotely on GitHub",
+            "Creating Public & Private Repositories",
+            "Collaboration with Pull Requests (PRs) and Code Reviews",
+            "Issue Tracking, Labels, and Project Boards",
+            "GitHub Wikis, Releases, and Security Alerts",
+            "Working with GitHub Desktop and CLI",
+          ],
+        },
+        {
+          title: "4. Deployment Tools & Project Deployment",
+          topics: [
+            "Introduction to Deployment Workflow and DevOps Basics",
+            "Frontend Deployment: Vercel, Netlify (Static Sites, SPA)",
+            "Backend Deployment: Railway, Render, Heroku (Node.js, Java, Spring Boot)",
+            "Environment Variables & Secrets Management",
+            "CI/CD Basics: Automating Build & Deployment Pipelines",
+            "Domain Mapping and SSL Certificate Setup (Intro)",
+          ],
+        },
+        {
+          title: "5. Figma UI/UX Design",
+          topics: [
+            "Introduction to Figma as a Collaborative Design Tool",
+            "UI/UX Fundamentals: User Research, Wireframing, and Prototyping",
+            "Creating Interactive Prototypes and Design Systems",
+            "Component-Based Design with Auto-Layout and Constraints",
+            "Collaboration Features: Comments, Sharing, and Developer Handoff",
+            "Enhancing Project Planning and Visual Communication Skills",
+          ],
+        },
+      ],
+    },
     {
       title: "Aptitude",
       children: [
@@ -129,7 +372,6 @@ export default function JavaFullStackPage() {
         },
       ],
     },
-
     {
       title: "Softskills",
       children: [
@@ -176,7 +418,6 @@ export default function JavaFullStackPage() {
         },
       ],
     },
-
     {
       title: "Projects",
       children: [
@@ -190,42 +431,26 @@ export default function JavaFullStackPage() {
 
   const faqData = [
     {
-      question: "What is DevOps?",
+      question: "What is Data Analytics?",
       answer:
-        "DevOps is a set of practices that combines software development and IT operations to deliver applications faster and more reliably.",
+        "Data Analytics involves inspecting, cleaning, transforming, and modeling data to discover useful information and support decision-making.",
     },
     {
-      question: "Is DevOps suitable for beginners?",
+      question: "Do I need programming experience for this course?",
       answer:
-        "Yes, this course follows a beginner-to-advanced roadmap and is suitable for learners with basic IT knowledge.",
+        "Basic knowledge of Excel or any spreadsheet tool is helpful, but beginners can start with guided training.",
     },
     {
-      question: "Which tools are covered in the DevOps course?",
+      question: "Is Data Analytics a good career choice?",
       answer:
-        "The course covers Git, Jenkins, Docker, Kubernetes, Terraform and Ansible basics, along with cloud concepts.",
+        "Yes, it is one of the fastest-growing and in-demand career paths across all industries.",
     },
     {
-      question: "Is DevOps a good career option?",
+      question: "How long does it take to complete a Data Analyst course?",
       answer:
-        "Yes, DevOps is one of the most in-demand roles with excellent growth and salary opportunities.",
-    },
-    {
-      question: "Do you provide placement support?",
-      answer:
-        "Yes, Orange ITech offers full placement assistance, mock interviews, and internship support.",
-    },
-    {
-      question: "Is this course up to date with the latest DevOps trends?",
-      answer:
-        "Absolutely. The roadmap is crafted based on current industry demands and future trends, ensuring you stay ahead with relevant skills.",
-    },
-    {
-      question: "Can I access the course content anytime?",
-      answer:
-        "Yes. Once enrolled, you get lifetime access to all modules, videos, and updates so you can learn at your own pace, anytime, anywhere.",
+        "You can complete the course in 6 months, depending on your pace. It's flexible and designed for both full-time learners and working professionals.",
     },
   ];
-
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeModule, setActiveModule] = useState(null);
   const [activeChild, setActiveChild] = useState({});
@@ -259,11 +484,13 @@ export default function JavaFullStackPage() {
         <div className="java-hero-container">
           {/* LEFT CONTENT */}
           <div className="java-hero-left">
-            <h1>DevOps Course – Master CI/CD, Cloud & Automation</h1>
+            <h1>
+              Data Analyst Course in Pune – Build a Career in Data Analytics
+            </h1>
 
             <p>
-              Learn CI/CD, Docker, Kubernetes, Cloud & Automation with hands-on
-              training and real-world projects.
+              Master Excel, SQL, Python, Power BI, Tableau & data visualization
+              tools with real-world projects and placement support.
             </p>
 
             <div className="hero-buttons">
@@ -293,8 +520,8 @@ export default function JavaFullStackPage() {
               <iframe
                 width="550"
                 height="310"
-                src="https://www.youtube.com/embed/-c2FPxLAVKA"
-                title="Become a Cyber Security Expert | Complete Roadmap &amp; Technologies"
+                src="https://www.youtube.com/embed/L5KDrMkMlzw"
+                title="Become a Data Science Expert | Complete Roadmap &amp; Technologies"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
@@ -339,35 +566,36 @@ export default function JavaFullStackPage() {
         <Container>
           <Row className="align-items-center">
             {/* LEFT CONTENT */}
-            <h2 className="angular-title">About the DevOps Course</h2>
+            <h2 className="angular-title">About the Data Analyst Course</h2>
             <Col lg={6} md={6} className="about-content-col">
               <p>
-                The DevOps course at Orange ITech is a comprehensive,
-                industry-ready training program designed to help you master the
-                tools, practices, and mindset required for modern software
-                development and IT operations.
+                The Data Analyst course at Orange ITech is a comprehensive,
+                industry-oriented program designed to help you master data
+                analysis, visualization, SQL, and analytics tools using modern
+                techniques and real-world datasets.
               </p>
 
               <p>
-                This structured beginner-to-advanced DevOps roadmap covers
-                everything from version control using Git to advanced concepts
-                like CI/CD pipelines, Docker containers, Kubernetes
-                orchestration, Infrastructure as Code (IaC), and cloud
-                deployment.
+                From data cleaning and manipulation to creating interactive
+                dashboards and reports, this course covers the complete skillset
+                you need to become a successful data analyst. You'll work with
+                real datasets, hands-on projects, and practical use cases to
+                gain job-ready skills demanded by top companies.
               </p>
 
               <p>
-                With practical labs, real-world use cases, and live project
-                experience, this course equips you with automation and
-                deployment skills that are in high demand across IT industries.
+                Whether you're a beginner or a professional looking to
+                transition into data analytics, this course equips you with the
+                knowledge and confidence to succeed in this fast-growing field.
               </p>
             </Col>
 
             {/* RIGHT IMAGE */}
             <Col lg={6} md={6} className="about-image-col">
               <div className="about-image-bg ">
+                {/* <img src={JavaImg} alt="About Course" className="about-image" /> */}
                 <img
-                  src={publicUrlFor("images/courses/cyber.jpg")}
+                  src={publicUrlFor("images/courses/DataImg.jpg")}
                   alt="Java Course Image"
                   className="gallery-image"
                 />
@@ -380,11 +608,11 @@ export default function JavaFullStackPage() {
       <section className="who-can-join-section">
         <Container>
           {/* HEADING */}
-          <h2 className="who-title">Who Can DevOps Course?</h2>
+          <h2 className="who-title">Who Can Join Data Analyst Course?</h2>
 
           <p className="who-subtitle">
-            Our Job Oriented DevOps Training Course is designed for a wide range
-            of learners, including:
+            Our Job Oriented Data Analyst Training Course is designed for a wide
+            range of learners, including:
           </p>
 
           {/* SCROLL WRAPPER */}
@@ -485,11 +713,13 @@ export default function JavaFullStackPage() {
       {/* ===== CURRICULUM ===== */}
       <section className="syllabus-wrapper">
         <div className="syllabus-container">
-          <h4 className="mean-title">DevOps Course Curriculum Overview</h4>
+          <h4 className="about-title">
+            Data Analyst Course Curriculum Overview
+          </h4>
 
           <p className="faq-subtitle">
-            Our DevOps course syllabus is structured to cover end-to-end
-            full-stack technologies with a strong emphasis on practical
+            Our Data Analyst course syllabus is structured to cover end-to-end
+            data analytics skills with a strong emphasis on practical
             implementation and real-world projects.
           </p>
 
@@ -548,7 +778,7 @@ export default function JavaFullStackPage() {
             {/* LEFT SIDE – CONTENT INTRO */}
             <Col lg={5} md={12} className="why-left">
               <h2 className="about-title">
-                Why Choose Orange ITech for DevOps?
+                Why Choose Orange ITech for Data Analyst?
               </h2>
 
               <p className="why-subtitle">
@@ -621,7 +851,7 @@ export default function JavaFullStackPage() {
       <section className="fees-duration-section">
         <Container>
           {/* HEADING */}
-          <h2 className="fee-title">DevOps Fees & Duration</h2>
+          <h2 className="fee-title">Data Analyst Course Fees & Duration</h2>
 
           {/* CARD GRID */}
           <Row className="gy-4 mt-4">
@@ -682,7 +912,7 @@ export default function JavaFullStackPage() {
           {/* LEFT : FAQ */}
           <div className="faq-col">
             <div className="faq-header">
-              <h2 className="about-title">DevOps Training FAQs</h2>
+              <h2 className="about-title">Data Analyst Training FAQs</h2>
             </div>
 
             <div className="faq-list">
@@ -716,16 +946,16 @@ export default function JavaFullStackPage() {
 
             <div className="tech-grid">
               {[
-                "Linux Fundamentals",
+                "Python Programming",
+
+                "NumPy, Pandas",
+                "Machine Learning",
+
+                "Artificial Intelligence",
+                "SQL & Databases",
+
+                "Model Deployment",
                 "Git & GitHub",
-                "Shell Scripting",
-                "Jenkins",
-                "Docker",
-                "Kubernetes",
-                "CI/CD Pipelines",
-                "Ansible",
-                "Terraform",
-                "AWS / Cloud Computing",
               ].map((tech, index) => (
                 <div key={index} className="tech-card">
                   {tech}
@@ -740,7 +970,7 @@ export default function JavaFullStackPage() {
         <Container>
           {/* HEADING */}
           <h2 className="career-title">
-            Career Opportunities After DevOps Program
+            Career Opportunities After Data Analyst Training Program
           </h2>
 
           <p className="career-subtitle text-center">
@@ -748,37 +978,28 @@ export default function JavaFullStackPage() {
           </p>
 
           {/* ROLE CARDS */}
-
           <Row className="gy-4 mt-4">
-            {/* DevOps Engineer */}
+            {/* Data Analyst */}
             <Col md={4}>
               <div className="career-card">
-                <FaTools className="career-icon" />
-                <span>DevOps Engineer</span>
+                <FaChartBar className="career-icon" />
+                <span>Data Analyst</span>
               </div>
             </Col>
 
-            {/* Cloud Engineer */}
+            {/* Business Analyst */}
             <Col md={4}>
               <div className="career-card">
-                <FaCloud className="career-icon" />
-                <span>Cloud Engineer</span>
+                <FaChartLine className="career-icon" />
+                <span>Business Analyst</span>
               </div>
             </Col>
 
-            {/* Site Reliability Engineer */}
+            {/* Data Visualization Specialist */}
             <Col md={4}>
               <div className="career-card">
-                <FaServer className="career-icon" />
-                <span>Site Reliability Engineer (SRE)</span>
-              </div>
-            </Col>
-
-            {/* Build & Release Engineer */}
-            <Col md={4}>
-              <div className="career-card">
-                <FaCodeBranch className="career-icon" />
-                <span>Build & Release Engineer</span>
+                <FaBrain className="career-icon" />
+                <span>Data Visualization Specialist</span>
               </div>
             </Col>
 
@@ -790,19 +1011,27 @@ export default function JavaFullStackPage() {
               </div>
             </Col>
 
-            {/* Automation Engineer */}
+            {/* Reporting Analyst */}
+            <Col md={4}>
+              <div className="career-card">
+                <FaPython className="career-icon" />
+                <span>Reporting Analyst</span>
+              </div>
+            </Col>
+
+            {/* Database Analyst */}
             <Col md={4}>
               <div className="career-card">
                 <FaRobot className="career-icon" />
-                <span>Automation Engineer</span>
+                <span>Database Analyst</span>
               </div>
             </Col>
           </Row>
-
           {/* DESCRIPTION */}
           <p className="career-note text-center mt-5">
-            DevOps are in high demand across IT services, startups, product
-            companies, fintech, and enterprise organizations.
+            Data Analyst skills are in high demand across IT services, startups,
+            product companies, fintech, healthcare, and enterprise
+            organizations.
           </p>
         </Container>
       </section>
@@ -827,14 +1056,15 @@ export default function JavaFullStackPage() {
                 <h2 className="about-title">Certification</h2>
 
                 <h3 className="certification-subtitle">
-                  Earn a Master Certification in <br /> <strong>DevOps </strong>
+                  Earn a Master Certification in <br />{" "}
+                  <strong>Data Analyst </strong>
                 </h3>
 
                 <p className="certification-text">
                   Get recognized for your expertise with a Master Certification
-                  in data Science And AI . This industry-recognized
-                  certification validates your skills and helps you stand out in
-                  the competitive job market.
+                  in Data Analytics. This industry-recognized certification
+                  validates your skills and helps you stand out in the
+                  competitive job market.
                 </p>
 
                 {/* <Button className="certification-btn">Get Certified</Button> */}

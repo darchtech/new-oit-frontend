@@ -221,7 +221,11 @@ const coursePdfMap = {
   "Java FullStack": "/assets/pdfs/Java fullstack Booklet.pdf",
   "PHP FullStack": "/assets/pdfs/Php fullstack course Booklet.pdf",
   "Python FullStack": "/assets/pdfs/Python fullstack course Booklet.pdf",
+  ".Net FullStack": "/assets/pdfs/Dot Net booklet.pdf",
   "Mean Stack": "/assets/pdfs/Mean stack course Booklet.pdf",
+  "Data Science": "/assets/pdfs/Data science booklet.pdf",
+  "Data Analyst": "/assets/pdfs/Data Analyst booklet.pdf",
+  "Digital Marketing": "/assets/pdfs/Digital marketing booklet.pdf",
   "Cyber Security": "/assets/pdfs/Cyber security Booklet.pdf",
   Flutter: "/assets/pdfs/Flutter fullstack Booklet.pdf",
   "Sales Force Development": "/assets/pdfs/Salesforce course Booklet.pdf",
@@ -405,7 +409,6 @@ function ContactFormPage() {
                   className="form-control"
                   rows="5"
                   placeholder="Your Message (optional)"
-                  
                 />
               </div>
 

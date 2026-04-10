@@ -1029,6 +1029,7 @@ function ContactUsPage() {
                       <option>.Net Developer</option>
                       <option>Mean Stack</option>
                       <option>Data Science & AI</option>
+                      <option>Data Analyst</option>
                       <option>DevOps</option>
                       <option>Cyber Security</option>
                       <option>Digital Marketing</option>

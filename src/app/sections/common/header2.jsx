@@ -7,6 +7,7 @@ import "../../sections/common/header2.css";
 function Header2() {
   const [isActive, setIsActive] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [isBranchOpen, setIsBranchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -39,6 +40,7 @@ function Header2() {
 
   useEffect(() => {
     setIsCoursesOpen(false);
+    setIsBranchOpen(false);
     setIsActive(false);
   }, [location.pathname]);
 
@@ -220,6 +222,9 @@ function Header2() {
                           <NavLink to="/courses/data-science-ai">
                             Data Science & AI
                           </NavLink>
+                          <NavLink to="/courses/data-analyst">
+                            Data Analyst
+                          </NavLink>
                           <NavLink to="/courses/devops">DevOps</NavLink>
                           <NavLink to="/courses/cybersecurity">
                             Cyber Security
@@ -256,6 +261,29 @@ function Header2() {
                 </li>
                 <li>
                   <NavLink to="/exam">Exam</NavLink>
+                </li>
+
+                {/* Branch Dropdown */}
+                <li className={`nav-item ${isBranchOpen ? "open" : ""}`}>
+                  <NavLink
+                    to="/branches"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsBranchOpen((prev) => !prev);
+                    }}
+                  >
+                    Branches
+                  </NavLink>
+
+                  {isBranchOpen && (
+                    <ul className="sub-menu branches-dropdown">
+                      <li>
+                        <div className="dropdown-column">
+                          <NavLink to="/branches/nashik">Nashik</NavLink>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
                 </li>
 
                 <li className="nav-cta">

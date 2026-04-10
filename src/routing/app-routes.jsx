@@ -34,6 +34,7 @@ import PythonFullStackPage from "../app/components/Courses/PythonFullStackPage";
 import DotNetFullStackPage from "../app/components/Courses/DotNetFullStackPage";
 import MEANStackPage from "../app/components/Courses/MEANStackPage";
 import DataScienceAIPage from "../app/components/Courses/DataScienceAIPage";
+import DataAnalystPage from "../app/components/Courses/DataAnalyst";
 import DevopsPage from "../app/components/Courses/DevopsPage";
 import CyberSecurityPage from "../app/components/Courses/CyberSecurityPage";
 import SoftwareTestingPage from "../app/components/Courses/SoftwareTestingPage";
@@ -47,6 +48,8 @@ import FlutterPage from "../app/components/Courses/FlutterPage";
 import CProgrammingPage from "../app/components/Courses/CProgrammingPage";
 import AdvanceJavaPage from "../app/components/Courses/AdvanceJavaPage";
 import SalesForceDevelopmentPage from "../app/components/Courses/SalesForceDevelopmentPage";
+
+import NashikBranchPage from "../app/components/Branches/NashikBranch";
 
 import Careers from "../app/components/Careers/Careers";
 import Placement from "../app/components/Placement/Placement";
@@ -86,6 +89,7 @@ function AppRoutes() {
       <Route path="/exam" element={<QuizPage />} />
       <Route path="/exam/:quizId" element={<QuizPage />} />
       <Route path="/admin/quiz" element={<QuizAdmin />} />
+      <Route path="/branches/nashik" element={<NashikBranchPage />} />
       <Route path="/placement" element={<Placement />} />
       <Route path="/sectionOurInfo1" element={<SectionOurInfo1 />} />
       <Route path="/SectionWhyChooseUs1" element={<SectionWhyChooseUs1 />} />
@@ -136,6 +140,7 @@ function AppRoutes() {
         element={<MERNStackPage />}
       />
       <Route path="/courses/data-science-ai" element={<DataScienceAIPage />} />
+      <Route path="/courses/data-analyst" element={<DataAnalystPage />} />
       <Route path="/courses/devops" element={<DevopsPage />} />
       <Route path="/courses/cybersecurity" element={<CyberSecurityPage />} />
       <Route
