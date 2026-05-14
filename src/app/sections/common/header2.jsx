@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import ItodoImage from "../../elements/itodo-img";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { loadScript } from "../../../globals/constants";
 import "../../sections/common/header2.css";
 
@@ -12,6 +12,9 @@ function Header2() {
   const location = useLocation();
 
   const toggleNavClass = () => setIsActive(!isActive);
+
+  const branchWrapperRef = useRef(null);
+
 
   // Scroll detection for fixed navbar
   useEffect(() => {
@@ -56,6 +59,32 @@ function Header2() {
       document.body.classList.remove("no-scroll");
     };
   }, [isActive]);
+
+  // Close Branch dropdown on outside click (desktop + mobile)
+  useEffect(() => {
+    if (!isBranchOpen) return;
+
+    const handlePointerDown = (e) => {
+      const wrapper = branchWrapperRef.current;
+      if (!wrapper) return;
+
+      // If click is outside the Branch dropdown wrapper, close it
+      if (!wrapper.contains(e.target)) {
+        setIsBranchOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown, {
+      passive: true,
+    });
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+    };
+  }, [isBranchOpen]);
+
 
   return (
     /* ✅ FIX 1: removed navbar-collapse from header */
@@ -263,28 +292,37 @@ function Header2() {
                   <NavLink to="/exam">Exam</NavLink>
                 </li>
 
-                {/* Branch Dropdown */}
-                <li className={`nav-item ${isBranchOpen ? "open" : ""}`}>
-                  <NavLink
-                    to="/branches"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsBranchOpen((prev) => !prev);
-                    }}
+                  {/* Branch Dropdown */}
+                  <li
+                    className={`nav-item ${isBranchOpen ? "open" : ""}`}
+                    ref={branchWrapperRef}
                   >
-                    Branches
-                  </NavLink>
+                    <NavLink
+                      to="/branches"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsBranchOpen((prev) => !prev);
+                      }}
+                    >
+                      Branches
+                    </NavLink>
 
-                  {isBranchOpen && (
-                    <ul className="sub-menu branches-dropdown">
-                      <li>
-                        <div className="dropdown-column">
-                          <NavLink to="/branches/nashik">Nashik</NavLink>
-                        </div>
-                      </li>
-                    </ul>
-                  )}
-                </li>
+                    {isBranchOpen && (
+                      <ul className="sub-menu branches-dropdown">
+                        <li>
+                          <div className="dropdown-column">
+                            <NavLink to="/branches/nashik">Nashik</NavLink>
+                          </div>
+                        </li>
+                        <li>
+                          <div className="dropdown-column">
+                            <NavLink to="/branches/kolhapur">Kolhapur</NavLink>
+                          </div>
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+
 
                 <li className="nav-cta">
                   <NavLink to="/contact-us" className="enquire-btn">

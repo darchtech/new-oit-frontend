@@ -387,21 +387,55 @@ body {
    BRANCHES DROPDOWN — DESKTOP
 ===================================================== */
 @media (min-width: 993px) {
-  .header-nav .sub-menu.branches-dropdown {
+.header-nav .sub-menu.branches-dropdown {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: #fff;
-    padding: 20px 40px;
+    padding: 10px 10px;
     display: flex;
-    gap: 20px;
-    border-radius: 6px;
+    flex-direction: column;
+    gap: 6px;
+    border-radius: 8px;
     border: 1px solid #e5e5e5;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    min-width: 200px;
+    min-width: 210px;
     max-width: 95vw;
     z-index: 999;
+    align-items: stretch;
+  }
+
+  .header-nav .sub-menu.branches-dropdown > li {
+    width: 100%;
+    min-width: 0;
+    display: block;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column a {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #333 !important;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column a:hover {
+    background-color: rgba(255, 106, 0, 0.1);
+    color: #ff6a00 !important;
+  }
+
+  .header-nav .sub-menu.branches-dropdown .dropdown-column a:active {
+    transform: translateY(1px);
   }
 
   .header-nav .sub-menu.branches-dropdown > li {
@@ -410,9 +444,10 @@ body {
 
   .header-nav .sub-menu.branches-dropdown .dropdown-column a {
     font-size: 14.5px;
-    padding: 8px 0;
+    padding: 10px 12px;
     color: #333;
     white-space: normal;
+    border-radius: 6px;
   }
 
   .header-nav .sub-menu.branches-dropdown .dropdown-column a:hover {

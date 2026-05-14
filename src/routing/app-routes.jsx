@@ -50,6 +50,8 @@ import AdvanceJavaPage from "../app/components/Courses/AdvanceJavaPage";
 import SalesForceDevelopmentPage from "../app/components/Courses/SalesForceDevelopmentPage";
 
 import NashikBranchPage from "../app/components/Branches/NashikBranch";
+import KolhapurBranchPage from "../app/components/Branches/KolhapurBranch";
+
 
 import Careers from "../app/components/Careers/Careers";
 import Placement from "../app/components/Placement/Placement";
@@ -90,6 +92,7 @@ function AppRoutes() {
       <Route path="/exam/:quizId" element={<QuizPage />} />
       <Route path="/admin/quiz" element={<QuizAdmin />} />
       <Route path="/branches/nashik" element={<NashikBranchPage />} />
+      <Route path="/branches/kolhapur" element={<KolhapurBranchPage />} />
       <Route path="/placement" element={<Placement />} />
       <Route path="/sectionOurInfo1" element={<SectionOurInfo1 />} />
       <Route path="/SectionWhyChooseUs1" element={<SectionWhyChooseUs1 />} />
