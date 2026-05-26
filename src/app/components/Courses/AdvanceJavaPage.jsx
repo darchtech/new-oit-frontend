@@ -591,7 +591,7 @@ export default function AdvanceJavaPage() {
                         {activeChild[mIndex] === cIndex && (
                           <ul className="syllabus-list">
                             {child.topics.map((topic, tIndex) => (
-                              <li key={tIndex}>• {topic}</li>
+                              <li key={tIndex}>{topic}</li>
                             ))}
                           </ul>
                         )}

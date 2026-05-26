@@ -194,120 +194,145 @@ export default function DataAnalystPage() {
       ],
     },
     // ✅ FIXED: Wrapped standalone modules into proper children structure
+   {
+  title: "Data Analyst Development",
+  children: [
     {
-      title: "Core Data Analytics",
-      children: [
-        {
-          title: "1. Introduction to Data Analytics",
-          topics: [
-            "What is Data Analytics",
-            "Types of Analytics",
-            "Role of Data Analysts",
-            "Real-world use cases (business, healthcare, finance)",
-          ],
-        },
-        {
-          title: "2. Advanced Excel for Data Analysis",
-          topics: [
-            "Basics: Rows, columns, formatting",
-            "Functions: SUM, AVERAGE, IF, VLOOKUP/XLOOKUP",
-            "Data cleaning: Remove duplicates, text functions",
-            "Pivot tables and charts",
-            "Dashboard creation in Excel",
-          ],
-        },
-        {
-          title: "3. Python for Data Analysis",
-          topics: [
-            "Python basics: Variables, loops, functions",
-            "NumPy arrays",
-            "Pandas for data manipulation",
-            "Data cleaning and preprocessing",
-            "Matplotlib and Seaborn visualization",
-            "Working with CSV and Excel files",
-          ],
-        },
-        {
-          title: "4. SQL",
-          topics: [
-            "SQL basics: SELECT, WHERE, ORDER BY",
-            "JOIN operations",
-            "GROUP BY and aggregation functions",
-            "Subqueries and views",
-            "Working with MySQL/PostgreSQL",
-          ],
-        },
-        {
-          title: "5. Data Visualization Tools",
-          topics: [
-            "Power BI basics",
-            "Tableau basics",
-            "Creating charts and dashboards",
-            "Storytelling with data",
-            "KPI design",
-          ],
-        },
-        {
-          title: "6. Statistics for Data Analysis",
-          topics: [
-            "Mean, Median, Mode",
-            "Probability fundamentals",
-            "Distributions",
-            "Hypothesis testing",
-            "Correlation vs Causation",
-          ],
-        },
-        {
-          title: "7. Python Libraries",
-          topics: [
-            "NumPy",
-            "Pandas",
-            "Matplotlib",
-            "Seaborn",
-            "Data visualization techniques",
-            "Working with CSV and Excel files",
-          ],
-        },
-        {
-          title: "8. Exploratory Data Analysis (EDA)",
-          topics: [
-            "Understanding datasets",
-            "Identifying patterns",
-            "Visualizing techniques",
-            "Generating insights",
-          ],
-        },
-        {
-          title: "9. Introduction to Machine Learning",
-          topics: [
-            "Supervised vs Unsupervised learning",
-            "Regression basics",
-            "Classification basics",
-            "Clustering (K-Means)",
-            "Model evaluation",
-          ],
-        },
-        {
-          title: "10. Business & Communication Skills",
-          topics: [
-            "Asking the right questions",
-            "Translating data into insights",
-            "Report writing",
-            "Presentation skills",
-            "Stakeholder communication",
-          ],
-        },
-        {
-          title: "11. Tools & Workflows",
-          topics: [
-            "Git and GitHub basics",
-            "Jupyter Notebook",
-            "Google Sheets",
-            "API basics (optional)",
-          ],
-        },
+      title: "1. Introduction to Data Analytics",
+      topics: [
+        "What is Data Analytics",
+        "Types of Data Analytics",
+        "Role of Data Analyst",
+        "Business Use Cases",
+        "Data-driven Decision Making",
       ],
     },
+    {
+      title: "2. Advanced Excel for Data Analysis",
+      topics: [
+        "Excel Basics",
+        "Rows, Columns & Formatting",
+        "Functions: SUM, IF, COUNTIF",
+        "VLOOKUP & XLOOKUP",
+        "Conditional Formatting",
+        "Pivot Tables",
+        "Charts & Graphs",
+        "Dashboard Creation",
+        "Data Cleaning in Excel",
+      ],
+    },
+    {
+      title: "3. SQL for Data Analytics",
+      topics: [
+        "Introduction to Databases",
+        "SQL Basics",
+        "SELECT, WHERE, ORDER BY",
+        "GROUP BY & HAVING",
+        "Aggregate Functions",
+        "JOIN Operations",
+        "Subqueries",
+        "Views",
+        "Stored Procedures",
+        "Working with MySQL/PostgreSQL",
+      ],
+    },
+    {
+      title: "4. Python for Data Analysis",
+      topics: [
+        "Python Basics",
+        "Variables & Data Types",
+        "Loops & Functions",
+        "NumPy Arrays",
+        "Pandas DataFrames",
+        "Data Cleaning",
+        "Data Preprocessing",
+        "Reading CSV & Excel Files",
+        "Data Visualization",
+      ],
+    },
+    {
+      title: "5. Statistics for Data Analysis",
+      topics: [
+        "Mean, Median, Mode",
+        "Probability Basics",
+        "Data Distribution",
+        "Correlation & Covariance",
+        "Hypothesis Testing",
+        "Regression Basics",
+        "Statistical Analysis",
+      ],
+    },
+    {
+      title: "6. Data Visualization",
+      topics: [
+        "Matplotlib Basics",
+        "Seaborn Basics",
+        "Creating Charts",
+        "Interactive Dashboards",
+        "Power BI Basics",
+        "Tableau Basics",
+        "Storytelling with Data",
+        "KPI Dashboard Design",
+      ],
+    },
+    {
+      title: "7. Exploratory Data Analysis (EDA)",
+      topics: [
+        "Understanding Datasets",
+        "Data Inspection",
+        "Handling Missing Values",
+        "Identifying Patterns",
+        "Outlier Detection",
+        "Feature Relationships",
+        "Generating Insights",
+      ],
+    },
+    {
+      title: "8. Machine Learning Basics",
+      topics: [
+        "Introduction to Machine Learning",
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Linear Regression",
+        "Classification Models",
+        "Clustering (K-Means)",
+        "Model Evaluation",
+      ],
+    },
+    {
+      title: "9. Business & Communication Skills",
+      topics: [
+        "Business Understanding",
+        "Asking the Right Questions",
+        "Report Writing",
+        "Presentation Skills",
+        "Data Storytelling",
+        "Stakeholder Communication",
+      ],
+    },
+    {
+      title: "10. Tools & Workflow",
+      topics: [
+        "Git & GitHub Basics",
+        "Jupyter Notebook",
+        "Google Sheets",
+        "API Basics",
+        "Project Workflow",
+        "Version Control",
+      ],
+    },
+    {
+      title: "11. Projects & Case Studies",
+      topics: [
+        "Sales Data Analysis Project",
+        "Customer Segmentation",
+        "Dashboard Development",
+        "Business Insights Reporting",
+        "End-to-End Data Analytics Project",
+      ],
+    },
+  ],
+},
     {
       title: "DSA",
       children: [
