@@ -1,9 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { Container, Button } from "react-bootstrap";
 import { Container, Row, Col, Button } from "react-bootstrap";
-// import JavaImg from "../../assets/images/courses/JavaImg.jpg";
-// import CertificateImg from "../../assets/images/courses/CertificateImg.jpg";
-// import { bannerData } from "../../../globals/banner";
 import { publicUrlFor } from "../../../globals/constants";
 import { NavLink } from "react-router-dom";
 
@@ -197,6 +193,121 @@ export default function DataAnalystPage() {
         },
       ],
     },
+    // ✅ FIXED: Wrapped standalone modules into proper children structure
+    {
+      title: "Core Data Analytics",
+      children: [
+        {
+          title: "1. Introduction to Data Analytics",
+          topics: [
+            "What is Data Analytics",
+            "Types of Analytics",
+            "Role of Data Analysts",
+            "Real-world use cases (business, healthcare, finance)",
+          ],
+        },
+        {
+          title: "2. Advanced Excel for Data Analysis",
+          topics: [
+            "Basics: Rows, columns, formatting",
+            "Functions: SUM, AVERAGE, IF, VLOOKUP/XLOOKUP",
+            "Data cleaning: Remove duplicates, text functions",
+            "Pivot tables and charts",
+            "Dashboard creation in Excel",
+          ],
+        },
+        {
+          title: "3. Python for Data Analysis",
+          topics: [
+            "Python basics: Variables, loops, functions",
+            "NumPy arrays",
+            "Pandas for data manipulation",
+            "Data cleaning and preprocessing",
+            "Matplotlib and Seaborn visualization",
+            "Working with CSV and Excel files",
+          ],
+        },
+        {
+          title: "4. SQL",
+          topics: [
+            "SQL basics: SELECT, WHERE, ORDER BY",
+            "JOIN operations",
+            "GROUP BY and aggregation functions",
+            "Subqueries and views",
+            "Working with MySQL/PostgreSQL",
+          ],
+        },
+        {
+          title: "5. Data Visualization Tools",
+          topics: [
+            "Power BI basics",
+            "Tableau basics",
+            "Creating charts and dashboards",
+            "Storytelling with data",
+            "KPI design",
+          ],
+        },
+        {
+          title: "6. Statistics for Data Analysis",
+          topics: [
+            "Mean, Median, Mode",
+            "Probability fundamentals",
+            "Distributions",
+            "Hypothesis testing",
+            "Correlation vs Causation",
+          ],
+        },
+        {
+          title: "7. Python Libraries",
+          topics: [
+            "NumPy",
+            "Pandas",
+            "Matplotlib",
+            "Seaborn",
+            "Data visualization techniques",
+            "Working with CSV and Excel files",
+          ],
+        },
+        {
+          title: "8. Exploratory Data Analysis (EDA)",
+          topics: [
+            "Understanding datasets",
+            "Identifying patterns",
+            "Visualizing techniques",
+            "Generating insights",
+          ],
+        },
+        {
+          title: "9. Introduction to Machine Learning",
+          topics: [
+            "Supervised vs Unsupervised learning",
+            "Regression basics",
+            "Classification basics",
+            "Clustering (K-Means)",
+            "Model evaluation",
+          ],
+        },
+        {
+          title: "10. Business & Communication Skills",
+          topics: [
+            "Asking the right questions",
+            "Translating data into insights",
+            "Report writing",
+            "Presentation skills",
+            "Stakeholder communication",
+          ],
+        },
+        {
+          title: "11. Tools & Workflows",
+          topics: [
+            "Git and GitHub basics",
+            "Jupyter Notebook",
+            "Google Sheets",
+            "API basics (optional)",
+          ],
+        },
+      ],
+    },
     {
       title: "DSA",
       children: [
@@ -229,7 +340,7 @@ export default function DataAnalystPage() {
             "Types: Singly, Doubly, and Circular Linked Lists",
             "Operations: Insertion, Deletion, Traversal",
             "Reverse a Linked List",
-            "Detecting Cycles (Floyd’s Cycle Detection)",
+            "Detecting Cycles (Floyd's Cycle Detection)",
             "Sorting Linked Lists (e.g., Merge Sort)",
           ],
         },
@@ -451,6 +562,7 @@ export default function DataAnalystPage() {
         "You can complete the course in 6 months, depending on your pace. It's flexible and designed for both full-time learners and working professionals.",
     },
   ];
+
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeModule, setActiveModule] = useState(null);
   const [activeChild, setActiveChild] = useState({});
@@ -461,7 +573,7 @@ export default function DataAnalystPage() {
 
   const toggleModule = (index) => {
     setActiveModule(activeModule === index ? null : index);
-    setActiveChild({}); // ✅ reset children correctly
+    setActiveChild({});
   };
 
   const toggleChild = (moduleIndex, childIndex) => {
@@ -522,10 +634,10 @@ export default function DataAnalystPage() {
                 height="310"
                 src="https://www.youtube.com/embed/L5KDrMkMlzw"
                 title="Become a Data Science Expert | Complete Roadmap &amp; Technologies"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
               ></iframe>
             </div>
           </div>
@@ -593,7 +705,6 @@ export default function DataAnalystPage() {
             {/* RIGHT IMAGE */}
             <Col lg={6} md={6} className="about-image-col">
               <div className="about-image-bg ">
-                {/* <img src={JavaImg} alt="About Course" className="about-image" /> */}
                 <img
                   src={publicUrlFor("images/courses/DataImg.jpg")}
                   alt="Java Course Image"
@@ -703,8 +814,6 @@ export default function DataAnalystPage() {
                   is helpful but not mandatory)
                 </span>
               </div>
-
-              {/* DUPLICATE FOR SMOOTH LOOP */}
             </div>
           </div>
         </Container>
@@ -739,7 +848,7 @@ export default function DataAnalystPage() {
                 </div>
 
                 {/* MODULE CONTENT */}
-                {activeModule === mIndex && (
+                {activeModule === mIndex && module.children && (
                   <div className="module-desc">
                     {module.children.map((child, cIndex) => (
                       <div key={cIndex} className="inner-wrapper">
@@ -758,7 +867,7 @@ export default function DataAnalystPage() {
                         {activeChild[mIndex] === cIndex && (
                           <ul className="syllabus-list">
                             {child.topics.map((topic, tIndex) => (
-                              <li key={tIndex}>• {topic}</li>
+                              <li key={tIndex}>{topic}</li>
                             ))}
                           </ul>
                         )}
@@ -786,7 +895,6 @@ export default function DataAnalystPage() {
                 focusing on skills, employability, and real-world exposure.
               </p>
 
-              {/* <Button className=" "></Button> */}
               <NavLink
                 to="/contact-us"
                 className="hero-buttons btn-primary mt-4"
@@ -947,13 +1055,10 @@ export default function DataAnalystPage() {
             <div className="tech-grid">
               {[
                 "Python Programming",
-
                 "NumPy, Pandas",
                 "Machine Learning",
-
                 "Artificial Intelligence",
                 "SQL & Databases",
-
                 "Model Deployment",
                 "Git & GitHub",
               ].map((tech, index) => (
@@ -1044,7 +1149,7 @@ export default function DataAnalystPage() {
               <div className="certificate-image-wrapper">
                 <img
                   src={publicUrlFor("images/courses/CertificateImg.jpg")}
-                  alt="Java Course Image"
+                  alt="Course Certificate"
                   className="gallery-image"
                 />
               </div>
@@ -1066,8 +1171,6 @@ export default function DataAnalystPage() {
                   validates your skills and helps you stand out in the
                   competitive job market.
                 </p>
-
-                {/* <Button className="certification-btn">Get Certified</Button> */}
               </div>
             </Col>
           </Row>

@@ -55,21 +55,21 @@ export default function JavaFullStackPage() {
       children: [
         {
           title: "1. Introduction to Ethical Hacking",
-          topics: [
-            "HTML Tags and Elements",
-            "HTML Attributes",
-            "HTML Formatting",
-            "HTML Phrase Tags",
-            "HTML Meta Tags",
-            "HTML Comments",
-            "HTML Image Tags",
-            "HTML Tables",
-            "HTML Lists",
-            "HTML Iframes",
-            "HTML Blocks",
-            "HTML Backgrounds",
-            "HTML Colors and Fonts",
-          ],
+         topics: [
+  "What is Ethical Hacking",
+  "History of Hacking",
+  "Types of Hackers",
+  "Ethical Hacking vs Malicious Hacking",
+  "Cybersecurity Basics",
+  "CIA Triad",
+  "Importance of Ethical Hacking",
+  "Phases of Ethical Hacking",
+  "Common Cyber Threats",
+  "Legal and Ethical Guidelines",
+  "Introduction to Penetration Testing",
+  "Basic Security Terminologies",
+  "Overview of Hacking Tools",
+]
         },
       ],
     },
@@ -80,20 +80,87 @@ export default function JavaFullStackPage() {
         {
           title: "1. Denial-of-Service (DoS & DDoS)",
           topics: [
-            "Execution and mitigation of large-scale service disruption attacks",
+           "Introduction to DoS and DDoS Attacks",
+  "Difference Between DoS and DDoS",
+  "Types of DoS Attacks",
+  "Types of DDoS Attacks",
+  "Network Layer Attacks",
+  "Application Layer Attacks",
+  "Botnets and Their Role in DDoS",
+  "SYN Flood Attack",
+  "UDP Flood Attack",
+  "ICMP Flood Attack",
+  "HTTP Flood Attack",
+  "Amplification and Reflection Attacks",
+  "DoS Attack Detection Methods",
+  "Impact of DoS and DDoS Attacks",
+  "Prevention and Mitigation Techniques",
+  "Firewalls and Intrusion Prevention Systems",
+  "Rate Limiting and Traffic Filtering",
+  "Load Balancing and CDN Protection",
+  "Real-World DoS/DDoS Case Studies",
+  "Legal and Ethical Considerations",
           ],
         },
         {
           title: "2. Session Hijacking",
           topics: [
-            "Identify session hijacking methods and implement network-level protections",
+          "Information Gathering Fundamentals",
+  "Passive Information Gathering",
+  "Active Information Gathering",
+  "Footprinting Techniques",
+  "Google Dorking",
+  "WHOIS Lookup",
+  "DNS Enumeration",
+  "Email Harvesting",
+  "Social Engineering Basics",
+  "Network Scanning",
+  "Port Scanning",
+  "Banner Grabbing",
+  "Service Enumeration",
+  "Operating System Detection",
+  "Vulnerability Assessment Basics",
+  "Vulnerability Scanning Tools",
+  "fying Security WeaIdentiknesses",
+  "Risk Analysis",
+  "Common Network Vulnerabilities",
+  "Web Application Vulnerabilities",
+  "Authentication and Session Management",
+  "Cookies and Session Tokens",
+  "Session Hijacking Basics",
+  "Types of Session Hijacking",
+  "Session Hijacking Prevention Methods",
           ],
         },
         {
           title: "3. Evading IDS, Firewalls & Honeypots",
           topics: [
-            "Bypassing security infrastructure",
-            "Strengthening perimeter defenses",
+           "Introduction to Information Gathering",
+  "Footprinting Techniques",
+  "Passive Reconnaissance",
+  "Active Reconnaissance",
+  "WHOIS Lookup",
+  "DNS Enumeration",
+  "Email and Domain Harvesting",
+  "Google Dorking",
+  "Social Engineering Basics",
+  "Network Scanning Fundamentals",
+  "Port Scanning Techniques",
+  "Service Enumeration",
+  "Banner Grabbing",
+  "Introduction to Vulnerability Assessment",
+  "Types of Vulnerabilities",
+  "Vulnerability Scanning Tools",
+  "Risk Assessment Basics",
+  "Introduction to IDS",
+  "Types of Intrusion Detection Systems",
+  "Firewall Fundamentals",
+  "Types of Firewalls",
+  "Introduction to Honeypots",
+  "IDS Evasion Techniques",
+  "Firewall Evasion Basics",
+  "Honeypot Detection Methods",
+  "Countermeasures and Defense Strategies",
           ],
         },
       ],
@@ -105,48 +172,51 @@ export default function JavaFullStackPage() {
         {
           title: "1. Footprinting and Reconnaissance",
           topics: [
-            "Passive information gathering techniques",
-            "Active information gathering techniques",
-            "Using modern reconnaissance tools",
+            "Introduction to Footprinting",
+  "Passive Reconnaissance",
+  "Active Reconnaissance",
+  "DNS Enumeration",
+  "Google Dorking",
+  "WHOIS Lookup",
           ],
         },
         {
           title: "2. Scanning Networks",
           topics: [
-            "Types of network scanning",
-            "Network scanning countermeasures",
+            "Introduction to Network Scanning",
+  "Host Discovery Techniques",
+  "Port Scanning Methods",
+  "Service and Version Detection",
+  "Vulnerability Identification",
+  "Scanning Tools and Utilities",
           ],
         },
         {
           title: "3. Enumeration",
           topics: [
-            "Detailed system information gathering",
-            "Defensive enumeration techniques",
+           "Introduction to Enumeration",
+  "NetBIOS Enumeration",
+  "SNMP Enumeration",
+  "User and Group Enumeration",
+  "Service Enumeration",
+  "Enumeration Countermeasures",
           ],
         },
         {
           title: "4. Vulnerability Analysis",
           topics: [
-            "Identifying vulnerabilities",
-            "Analyzing vulnerabilities",
-            "Reporting vulnerabilities using industry-standard tools",
+              "Introduction to System Exploitation",
+  "Vulnerability Analysis Basics",
+  "Identifying System Vulnerabilities",
+  "Exploitation Techniques Overview",
+  "Privilege Escalation Concepts",
+  "Post-Exploitation Fundamentals",
           ],
         },
       ],
     },
 
-    {
-      title: "Denial, Hijacking & Evasion Tactics",
-      children: [
-        {
-          title: "1. Denial, Hijacking & Evasion Techniques",
-          topics: [
-            "Advanced attack strategies",
-            "Detection and prevention techniques",
-          ],
-        },
-      ],
-    },
+  
 
     {
       title: "Web & Application-Level Hacking",
@@ -181,22 +251,8 @@ export default function JavaFullStackPage() {
             "Defensive techniques against common attacks",
           ],
         },
-        {
-          title: "2. Hacking Web Applications",
-          topics: [
-            "OWASP Top 10 vulnerabilities",
-            "Injection attacks",
-            "Secure coding best practices",
-          ],
-        },
-        {
-          title: "3. SQL Injection",
-          topics: [
-            "SQL Injection attack lifecycle",
-            "Evasion techniques",
-            "Database hardening practices",
-          ],
-        },
+       
+        
       ],
     },
 
@@ -226,7 +282,7 @@ export default function JavaFullStackPage() {
           title: "4. Tool-Based Labs",
           topics: [
             "Kali Linux labs",
-            "SIEM systems practice",
+            "EndPoint Security",
             "Firewall configuration",
           ],
         },
@@ -671,7 +727,7 @@ export default function JavaFullStackPage() {
                         {activeChild[mIndex] === cIndex && (
                           <ul className="syllabus-list">
                             {child.topics.map((topic, tIndex) => (
-                              <li key={tIndex}>• {topic}</li>
+                              <li key={tIndex}>{topic}</li>
                             ))}
                           </ul>
                         )}
